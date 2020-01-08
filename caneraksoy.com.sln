@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "caneraksoy.com", "caneraksoy.com\caneraksoy.com.csproj", "{1C7BB234-6C6D-4C38-B129-3691F1B45861}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Business\Entities.csproj", "{07E53A34-304F-46A9-A253-BD5A7A2C0F45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1C7BB234-6C6D-4C38-B129-3691F1B45861}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C7BB234-6C6D-4C38-B129-3691F1B45861}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C7BB234-6C6D-4C38-B129-3691F1B45861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E53A34-304F-46A9-A253-BD5A7A2C0F45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E53A34-304F-46A9-A253-BD5A7A2C0F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E53A34-304F-46A9-A253-BD5A7A2C0F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E53A34-304F-46A9-A253-BD5A7A2C0F45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
