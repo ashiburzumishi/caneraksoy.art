@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business
+namespace Entities
+
 {
-    class Photographs
+    public class Photographs
     {
         public int p_Id { get; set; }
         public string p_Name { get; set; }
