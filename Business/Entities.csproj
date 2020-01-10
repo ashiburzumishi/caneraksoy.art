@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comment.cs" />
-    <Compile Include="Photographs.cs" />
+    <Compile Include="Photograph.cs" />
     <Compile Include="PhotosAndComments.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

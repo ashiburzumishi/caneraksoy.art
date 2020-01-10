@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Bir derlemeyle ilgili Genel Bilgiler şu yollarla denetlenir:

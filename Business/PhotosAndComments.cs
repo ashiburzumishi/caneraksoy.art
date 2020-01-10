@@ -9,6 +9,6 @@ namespace Entities
     class PhotosAndComments
     {
         public List<Comment> Comments { get; set; } = new List<Comment>();
-        public Photographs Photo { get; set; } = new Photographs();
+        public Photograph Photo { get; set; } = new Photograph();
     }
 }

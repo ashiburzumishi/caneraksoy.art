@@ -1,9 +1,5 @@
-﻿using System.Web.Mvc;
-
-
-
-
-
+﻿using Entities;
+using System.Web.Mvc;
 
 namespace caneraksoy.com.Controllers
 {
@@ -17,9 +13,8 @@ namespace caneraksoy.com.Controllers
         }
 
         [HttpPost]
-        public ActionResult Addphotograph(Photographs photographs)
+        public ActionResult Addphotograph(Photograph photographs)
         {
-            
         }
     }
 }
