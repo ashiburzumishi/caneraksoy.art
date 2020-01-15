@@ -1,129 +1,118 @@
-﻿<!DOCTYPE html>
+﻿<style>
+
+    .form {
+        margin-top: 100px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+</style>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+<style>
+    .header-container {
+        height: 100px;
+        width: %100;
+        background-color: #DDDDDD;
+    }
+
+    .logo {
+        height: 100px;
+        width: 100px;
+        background-color: black;
+        float: left;
+    }
+
+    .menu-container {
+        height: 50px;
+        width: 200px;
+        margin-right: 10px;
+        float: right;
+        margin-top: 23px;
+    }
+
+        .menu-container li {
+            list-style: none;
+            text-decoration: none;
+            float: left;
+            font-size: 20px;
+        }
+
+        .menu-container a {
+            text-decoration: none;
+            color: black;
+            font-family: "Cabin", Arial, Helvetica, sans-serif;
+            transition: all 1s;
+            text-shadow: 1px 1px white;
+        }
+
+            .menu-container a:hover {
+                text-decoration: underline;
+                transition: all 1s;
+            }
+</style>
 <html>
-<head>
-    <title>Contact form</title>
-
-    <style>
-        html, body {
-            min-height: 100%;
-            padding: 0;
-            margin: 0;
-            font-family: Roboto, Arial, sans-serif;
-            font-size: 14px;
-            color: #666;
-        }
-
-        h1 {
-            margin: 0 0 20px;
-            font-weight: 400;
-            color: #1c87c9;
-        }
-
-        p {
-            margin: 0 0 5px;
-        }
-
-        .main-block {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #1c87c9;
-        }
-
-        form {
-            padding: 25px;
-            margin: 25px;
-            box-shadow: 0 2px 5px #f5f5f5;
-            background: #f5f5f5;
-        }
-
-        .fas {
-            margin: 25px 10px 0;
-            font-size: 72px;
-            color: #fff;
-        }
-
-        .fa-envelope {
-            transform: rotate(-20deg);
-        }
-
-        .fa-at, .fa-mail-bulk {
-            transform: rotate(10deg);
-        }
-
-        input, textarea {
-            width: calc(100% - 18px);
-            padding: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #1c87c9;
-            outline: none;
-        }
-
-            input::placeholder {
-                color: #666;
-            }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            background: #1c87c9;
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-        }
-
-            button:hover {
-                background: #2371a0;
-            }
-
-        (min-width: 568px) {
-            .main-block
-
-        {
-            flex-direction: row;
-        }
-
-        .left-part, form {
-            width: 50%;
-        }
-
-        .fa-envelope {
-            margin-top: 0;
-            margin-left: 20%;
-        }
-
-        .fa-at {
-            margin-top: -10%;
-            margin-left: 65%;
-        }
-
-        .fa-mail-bulk {
-            margin-top: 2%;
-            margin-left: 28%;
-        }
-        }
-    </style>
-</head>
 <body>
-    <div class="main-block">
-        <div class="left-part">
-            <i class="fas fa-envelope"></i>
-            <i class="fas fa-at"></i>
-            <i class="fas fa-mail-bulk"></i>
-        </div>
-        <form action="/">
-            <h1>Fotoğraf Ekle</h1>
-            <div class="info">
-                <input class="fname" type="text" name="p_Name" placeholder="Fotoğraf Adı">
-                <input type="text" name="p_Detail" placeholder="Fotoğraf Detayı">
-                <input type="text" name="p_Link" placeholder="Link">
-            </div>
+    <div class="header-container">
 
-            <button type="submit" href="/">Gönder</button>
-        </form>
+        <div class="logo">
+        </div>
+
+        <div class="menu-container">
+            <ul class="menu">
+                <li><a href="">Hakkımda</a></li>
+                <li><a href="">/</a></li>
+                <li><a href="">Portföy</a></li>
+            </ul>
+        </div>
+
+
+
+
+
+
     </div>
 </body>
 </html>
+
+
+<div class="form">
+
+    <form method="post" action="" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+            <label>Art Name</label>
+            <input type="text" name="Name" class="form-control" placeholder="name" />
+        </div>
+
+        <div class="form-group">
+            <label>Art Detail</label>
+            <input type="text" name="Detail" class="form-control" placeholder="detail" />
+        </div>
+
+        <div class="form-group">
+            <label>Art Link </label>
+            <input type="text" name="Link" class="form-control" placeholder="link" />
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <button type="submit" class="btn btn-success">Gönder</button>
+    </form>
+
+</div>

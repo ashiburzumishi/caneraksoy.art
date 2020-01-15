@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "caneraksoy.com", "canerakso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Business\Entities.csproj", "{07E53A34-304F-46A9-A253-BD5A7A2C0F45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "SqlManager\DataAccess.csproj", "{46DF6E26-D846-431F-BBFB-05637FC26042}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managers", "Managers\Managers.csproj", "{CE7C3FA0-F958-441F-9A81-7F731B2A4720}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{07E53A34-304F-46A9-A253-BD5A7A2C0F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07E53A34-304F-46A9-A253-BD5A7A2C0F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07E53A34-304F-46A9-A253-BD5A7A2C0F45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46DF6E26-D846-431F-BBFB-05637FC26042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46DF6E26-D846-431F-BBFB-05637FC26042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46DF6E26-D846-431F-BBFB-05637FC26042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46DF6E26-D846-431F-BBFB-05637FC26042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE7C3FA0-F958-441F-9A81-7F731B2A4720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE7C3FA0-F958-441F-9A81-7F731B2A4720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE7C3FA0-F958-441F-9A81-7F731B2A4720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE7C3FA0-F958-441F-9A81-7F731B2A4720}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
