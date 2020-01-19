@@ -7,250 +7,182 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
-
-
-
-<style>
-    body{margin:0 !important;}
-    .header-container {
-        height: 100px;
-        width: %100;
-        background-color: #DDDDDD;
-        
-    }
-
-    .logo {
-        height: 100px;
-        width: 100px;
-        background-color: black;
-        float: left;
-    }
-
-    .menu-container {
-        height: 50px;
-        width: 230px;
-        margin-right: 10px;
-        float: right;
-        margin-top: 23px;
-    }
-
-        .menu-container li {
-            list-style: none;
-            text-decoration: none;
-            float: left;
-            font-size: 20px;
-        }
-
-    .un {
-        display: inline-block;
-    }
-
-        .un:after {
-            content: '';
-            width: 0px;
-            height: 1px;
-            display: block;
-            background: black;
-            transition: 300ms;
-        }
-
-        .un:hover:after {
-            width: 100%;
-        }
-
-    .menu-container a {
-        text-decoration: none;
-        color: black;
-        font-family: "Cabin", Arial, Helvetica, sans-serif;
-        transition: all 1s;
-    }
-
-
-
-    .footer-container {
-        height: 75px;
-        width: %100;
-        background-color: #DDDDDD;
-        margin-top: 100px;
-    }
-
-    .iletisim-container {
-        width: 250px;
-        height: 75px;
-        float: right;
-    }
-
-    .haberdarol {
-        margin-top: 10px;
-        margin-left: 10px;
-        font-family: "Cabin", Arial, Helvetica, sans-serif;
-    }
-
-    .input1 {
-        margin-left: 10px;
-        border: none;
-        border-radius: 2px;
-    }
-
-    .button1 {
-        margin-left: 10px;
-        margin-top: 3px;
-        background-color: white;
-        border: none;
-        border-radius: 2px;
-    }
-
-        .button1:hover {
-            background-color: black;
-            color: white;
-        }
-
-    .sosyalmedya {
-        height: 75px;
-        width: auto;
-        float: left;
-       
-        
-    }
-
-    .social {
-        list-style: none;
-        text-decoration: none;
-       
-        width:400px;
-        height:75px;
-        margin-top:3px;
-    }
-
-        .social li {
-            text-decoration: none;
-            float: left;
-        }
-
-        .social a {
-            text-decoration: none;
-            color: black;
-            font-family: "Cabin", Arial, Helvetica, sans-serif;
-        }
-        .social img {height:40px; margin-top:20px;}
-
-    .facebook {
-        display: inline-block;
-    }
-
-        .facebook:after {
-            content: '';
-            width: 0px;
-            height: 1px;
-            display: block;
-            background: #4267B2;
-            transition: 300ms;
-        }
-
-        .facebook:hover:after {
-            width: 100%;
-        }
-
-        .facebook a:hover {
-            color: #4267B2;
-            font-weight: bold;
-        }
-        .facebook img:hover{color:#4267B2;}
-
-    .twitter {
-        display: inline-block;
-    }
-
-        .twitter:after {
-            content: '';
-            width: 0px;
-            height: 1px;
-            display: block;
-            background: #00b7eb;
-            transition: 300ms;
-        }
-
-        .twitter:hover:after {
-            width: 100%;
-        }
-
-        .twitter a:hover {
-            color: #00b7eb;
-            font-weight: bold;
-        }
-
-    .instagram {
-        display: inline-block;
-    }
-
-        .instagram:after {
-            content: '';
-            width: 0px;
-            height: 1px;
-            display: block;
-            background: #cd486b;
-            transition: 300ms;
-        }
-
-        .instagram:hover:after {
-            width: 100%;
-        }
-
-        .instagram a:hover {
-            color: #cd486b;
-            font-weight: bold;
-        }
-        .footer-orta{height:75px;width:200px; background-color:yellow;}
-</style>
-
 <html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+
+    <style>
+
+        body {
+            background-color: #333;
+        }
+
+        .photoakisi {
+            max-width: 900px;
+            height: auto;
+            background-color: grey;
+        }
+
+        .grid {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .grid-item img {
+            border-radius: 5px;
+        }
+
+        .container {
+            float: left;
+            position: relative;
+            width: 300px;
+            max-width: 400px;
+            /*transition: 1s ease;*/
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+
+            .container img {
+                width: 100%;
+                height: auto;
+            }
+
+
+
+            .container .btn {
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                filter: brightness(0) invert(1);
+                height: 25px;
+                padding: 5px;
+                float: left;
+            }
+
+            .container .btn-fb {
+                height: 33px;
+                margin-top: -3px;
+            }
+
+
+
+
+
+
+            .container .btn:hover {
+                filter: brightness(0) invert(1);
+            }
+
+
+
+        .btn-container {
+            width: 60px;
+            padding: 10px;
+            height: 15px;
+            background-color: rgba(0,0,0,0.2);
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            border-radius: 5px;
+        }
+
+            .btn-container a {
+                color: white;
+            }
+
+            .btn-container .fa-heart:hover {
+                color: red;
+            }
+
+            .btn-container .fa-facebook-square:hover {
+                color: #3b5998;
+            }
+
+            .btn-container .fa-twitter-square:hover {
+                color: #00acee;
+            }
+    </style>
+</head>
 <body>
-    <div class="header-container">
 
-        <div class="logo">
-        </div>
-
-        <div class="menu-container">
-
-            <ul class="menu">
-                <li class="un"><a href="">Hakkımda</a></li>
-                <li class="un"><a href="">/</a></li>
-                <li class="un"><a href="">Portfolyo</a></li>
-            </ul>
-        </div>
+    <div class="grid">
 
 
-    </div>
 
-    <div class="footer-container">
-        <div class="sosyalmedya">
+        <div class="photoakisi">
+            <div class="container grid-item">
+                <div class="buttons">
+                    <img src="https://i.hizliresim.com/zGdZLD.png" alt="Snow" style="width:100%">
 
-            <ul class="social">
-                <li class="facebook"><a href=""><img src="https://i.hizliresim.com/bvNk7n.png" /></a></li>
-                
-                <li class="twitter"><a href=""><img src="https://i.hizliresim.com/lQn36l.png" /></a></li>
-                
-                <li class="instagram"><a href=""><img src="https://i.hizliresim.com/zGdazB.png" /></a></li>
-            </ul>
-        </div>
-        <div class="iletisim-container">
+                    <div class="btn-container">
+                        <a href=""><span class="fas fa-heart"></span></a>
+                        <a href=""> <span class="fab fa-facebook-square"></span></a>
+                        <a href=""> <span class="fab fa-twitter-square"></span></a>
+                    </div>
 
-            <div class="haberdarol">
-                Yeni Sanatlardan Haberdar Ol!
+                </div>
             </div>
-            <input tpye="text" class="input1" placeholder="e mail">
-            <br>
-            <input type="button" value="Haberdar Et !" class="button1">
+
+            <div class="container grid-item">
+                <div class="buttons">
+                    <img c src="https://i.hizliresim.com/Z5Gb6A.jpg" alt="Snow" style="width:100%">
+
+                    <div class="btn-container">
+                        <a href=""><span class="fas fa-heart"></span></a>
+                        <a href=""> <span class="fab fa-facebook-square"></span></a>
+                        <a href=""> <span class="fab fa-twitter-square"></span></a>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="container grid-item">
+                <div class="buttons">
+                    <img src="https://i.hizliresim.com/P7XLdQ.jpg" alt="Snow" style="width:100%">
+
+                    <div class="btn-container">
+                        <a href=""><span class="fas fa-heart"></span></a>
+                        <a href=""> <span class="fab fa-facebook-square"></span></a>
+                        <a href=""> <span class="fab fa-twitter-square"></span></a>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="container grid-item">
+                <div class="buttons">
+                    <img src="https://i.hizliresim.com/zGdZLD.png" alt="Snow" style="width:100%">
+
+                    <div class="btn-container">
+                        <a href=""><span class="fas fa-heart"></span></a>
+                        <a href=""> <span class="fab fa-facebook-square"></span></a>
+                        <a href=""> <span class="fab fa-twitter-square"></span></a>
+                    </div>
+
+                </div>
+            </div>
 
         </div>
-        <div class="footer-orta">
-
-
-        </div>
-
-
-
     </div>
+    <script>
+
+        $('document').ready(function () {
+            $('.grid').masonry({
+                // options
+                itemSelector: '.grid-item',
+                columnWidth: 300,
+                gutter: 10
+            });
+        })
+
+
+
+    </script>
 </body>
 </html>
