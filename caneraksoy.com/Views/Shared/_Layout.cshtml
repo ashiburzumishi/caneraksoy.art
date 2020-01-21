@@ -9,276 +9,305 @@
 </head>
 
 
-    <style>
+<style>
 
-      
-
-
-        body {
-            margin: 0 !important;
-        }
-
-
+    @@media screen and (max-width: 700px) {
         .header-container {
-            height: 100px;
-            width: 100%;
-            background-color: #222;
-            color: #444;
-            z-index: 5;
+            color: wheat;
         }
+    }
 
-        .logo {
-            height: 100px;
-            width: 100px;
-            background-color: black;
-            float: left;
-        }
-
-        .menu-container {
-            height: 50px;
-            width: 230px;
-            margin-right: 10px;
-            float: right;
-            margin-top: 23px;
-        }
-
-            .menu-container li {
-                list-style: none;
-                text-decoration: none;
-                float: left;
-                font-size: 20px;
-            }
-
-        .un {
-            display: inline-block;
-        }
-
-            .un:after {
-                content: '';
-                width: 0px;
-                height: 1px;
-                display: block;
-                background: black;
-                transition: 300ms;
-            }
-
-            .un:hover:after {
-                width: 100%;
-            }
-
-        .menu-container a {
-            text-decoration: none;
-            color: black;
-            font-family: "Cabin", Arial, Helvetica, sans-serif;
-            transition: all 1s;
-        }
-
-
-
+    @@media screen and (max-width:950px ) {
+        .header-container{height:160px !important;}
+        .header-container .logo{margin:auto !important; float:none !important;}
+        .header-container .menu-container{float:none !important; margin:auto!important;}
         .footer-container {
-            height: 100px;
-            width: 100%;
-            background-color: #222;
-            /*margin-top: 100px;
-        position: fixed;*/
-            bottom: 0;
-            z-index: 1000;
-            color: #444;
-        }
-
-        .iletisim-container {
-            width: 380px;
-            height: 75px;
-            float: right;
-        }
-
-        .haberdarol {
-            margin-top: 10px;
-            margin-left: 40px;
-            font-family: "Cabin", Arial, Helvetica, sans-serif;
-        }
-
-        .input1 {
-            margin-left: 10px;
-            border: none;
-            border-radius: 2px;
-            margin-top: 17px;
-            background-color: #444444;
-        }
-
-        .footer-container .button1 {
-            margin-left: 200px;
-            margin-top: -18px;
-            background-color: #444444;
-            border: none;
-            border-radius: 2px;
-        }
-
-        .button1:hover {
-            background-color: black;
-            color: white;
-        }
-
-        .sosyalmedya {
-            height: 75px;
-            width: auto;
-            float: left;
+            height: 150px !important;
         }
 
         .social {
+            margin-left: 80px !important;
+        }
+
+        .footer-container .haberdarol {
+            margin-left: 80px !important;
+        }
+
+        .footer-container .input1 {
+            margin-left: 50px !important;
+        }
+
+        .footer-container .button1 {
+            margin-left: 250px !important;
+        }
+    }
+
+    body {
+        margin: 0;
+        color: #333;
+    }
+
+
+    .header-container {
+        height: 100px;
+        width: 100%;
+        background-color: #222;
+        color: #444;
+        z-index: 5;
+    }
+
+    .logo {
+        height: 100px;
+        width: 100px;
+        background-color: black;
+        float: left;
+    }
+
+    .menu-container {
+        height: 50px;
+        width: 230px;
+        margin-right: 10px;
+        float: right;
+        margin-top: 23px;
+    }
+
+        .menu-container li {
             list-style: none;
             text-decoration: none;
-            width: 400px;
-            height: 75px;
-            margin-top: 3px;
+            float: left;
+            font-size: 20px;
         }
 
-            .social li {
-                text-decoration: none;
-                float: left;
-            }
+    .un {
+        display: inline-block;
+    }
 
-            .social a {
-                text-decoration: none;
-                color: black;
-                font-family: "Cabin", Arial, Helvetica, sans-serif;
-            }
-
-            .social img {
-                height: 40px;
-                margin-top: 20px;
-            }
-
-        .facebook {
-            display: inline-block;
+        .un:after {
+            content: '';
+            width: 0px;
+            height: 1px;
+            display: block;
+            background: black;
+            transition: 300ms;
         }
 
-            .facebook:after {
-                content: '';
-                width: 0px;
-                height: 1px;
-                display: block;
-                background: #4267B2;
-                transition: 300ms;
-            }
-
-            .facebook:hover:after {
-                width: 100%;
-            }
-
-            .facebook a:hover {
-                color: #4267B2;
-                font-weight: bold;
-            }
-
-            .facebook img:hover {
-                color: #4267B2;
-            }
-
-        .twitter {
-            display: inline-block;
+        .un:hover:after {
+            width: 100%;
         }
 
-            .twitter:after {
-                content: '';
-                width: 0px;
-                height: 1px;
-                display: block;
-                background: #00b7eb;
-                transition: 300ms;
-            }
+    .menu-container a {
+        text-decoration: none;
+        color: black;
+        font-family: "Cabin", Arial, Helvetica, sans-serif;
+        transition: all 1s;
+    }
 
-            .twitter:hover:after {
-                width: 100%;
-            }
 
-            .twitter a:hover {
-                color: #00b7eb;
-                font-weight: bold;
-            }
 
-        .instagram {
-            display: inline-block;
+    .footer-container {
+        height: 100px;
+        width: 100%;
+        background-color: #222;
+        /*margin-top: 100px;
+        position: fixed;*/
+        bottom: 0;
+        z-index: 1000;
+        color: #444;
+    }
+
+    .iletisim-container {
+        width: 380px;
+        height: 75px;
+        float: right;
+    }
+
+    .haberdarol {
+        margin-top: 10px;
+        margin-left: 40px;
+        font-family: "Cabin", Arial, Helvetica, sans-serif;
+    }
+
+    .input1 {
+        margin-left: 10px;
+        border: none;
+        border-radius: 2px;
+        margin-top: 17px;
+        background-color: #444444;
+    }
+
+    .footer-container .button1 {
+        margin-left: 200px;
+        margin-top: -18px;
+        background-color: #444444;
+        border: none;
+        border-radius: 2px;
+    }
+
+    .button1:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .sosyalmedya {
+        height: 75px;
+        width: auto;
+        float: left;
+    }
+
+    .social {
+        list-style: none;
+        text-decoration: none;
+        width: 400px;
+        height: 75px;
+        margin-top: 3px;
+    }
+
+        .social li {
+            text-decoration: none;
+            float: left;
         }
 
-            .instagram:after {
-                content: '';
-                width: 0px;
-                height: 1px;
-                display: block;
-                background: #cd486b;
-                transition: 300ms;
-            }
-
-            .instagram:hover:after {
-                width: 100%;
-            }
-
-            .instagram a:hover {
-                color: #cd486b;
-                font-weight: bold;
-            }
-
-        .footer-orta {
-            height: 75px;
-            width: 200px;
+        .social a {
+            text-decoration: none;
+            color: black;
+            font-family: "Cabin", Arial, Helvetica, sans-serif;
         }
-    </style>
+
+        .social img {
+            height: 40px;
+            margin-top: 20px;
+        }
+
+    .facebook {
+        display: inline-block;
+    }
+
+        .facebook:after {
+            content: '';
+            width: 0px;
+            height: 1px;
+            display: block;
+            background: #4267B2;
+            transition: 300ms;
+        }
+
+        .facebook:hover:after {
+            width: 100%;
+        }
+
+        .facebook a:hover {
+            color: #4267B2;
+            font-weight: bold;
+        }
+
+        .facebook img:hover {
+            color: #4267B2;
+        }
+
+    .twitter {
+        display: inline-block;
+    }
+
+        .twitter:after {
+            content: '';
+            width: 0px;
+            height: 1px;
+            display: block;
+            background: #00b7eb;
+            transition: 300ms;
+        }
+
+        .twitter:hover:after {
+            width: 100%;
+        }
+
+        .twitter a:hover {
+            color: #00b7eb;
+            font-weight: bold;
+        }
+
+    .instagram {
+        display: inline-block;
+    }
+
+        .instagram:after {
+            content: '';
+            width: 0px;
+            height: 1px;
+            display: block;
+            background: #cd486b;
+            transition: 300ms;
+        }
+
+        .instagram:hover:after {
+            width: 100%;
+        }
+
+        .instagram a:hover {
+            color: #cd486b;
+            font-weight: bold;
+        }
+
+    .footer-orta {
+        height: 75px;
+        width: 200px;
+    }
+</style>
 
 
 
 
-    <body>
+<body>
 
-        <div class="header-container">
+    <div class="header-container">
 
-            <div class="logo">
+        <div class="logo">
+        </div>
+
+        <div class="menu-container">
+
+            <ul class="menu">
+                <li class="un"><a href=""> Hakkımda</a></li>
+                <li class="un"><i class="fas fa-paint-brush"></i></li>
+                <li class="un"><a href="">Portfolyo</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+    @RenderBody()
+
+
+    <div class="footer-container">
+        <div class="sosyalmedya">
+
+            <ul class="social">
+                <li class="facebook"><a href=""><img src="https://i.hizliresim.com/bvNk7n.png" /></a></li>
+
+                <li class="twitter"><a href=""><img src="https://i.hizliresim.com/lQn36l.png" /></a></li>
+
+                <li class="instagram"><a href=""><img src="https://i.hizliresim.com/zGdazB.png" /></a></li>
+            </ul>
+        </div>
+        <div class="iletisim-container">
+
+            <div class="haberdarol">
+                Yeni Sanatlardan Haberdar Ol!
             </div>
+            <input tpye="text" class="input1" placeholder="e mail">
+            <br>
+            <input type="button" value="Haberdar Et !" class="button1">
 
-            <div class="menu-container">
-
-                <ul class="menu">
-                    <li class="un"><a href=""> Hakkımda</a></li>
-                    <li class="un"><i class="fas fa-paint-brush"></i></li>
-                    <li class="un"><a href="">Portfolyo</a></li>
-                </ul>
-            </div>
+        </div>
+        <div class="footer-orta">
 
 
         </div>
 
 
-        @RenderBody()
 
-
-        <div class="footer-container">
-            <div class="sosyalmedya">
-
-                <ul class="social">
-                    <li class="facebook"><a href=""><img src="https://i.hizliresim.com/bvNk7n.png" /></a></li>
-
-                    <li class="twitter"><a href=""><img src="https://i.hizliresim.com/lQn36l.png" /></a></li>
-
-                    <li class="instagram"><a href=""><img src="https://i.hizliresim.com/zGdazB.png" /></a></li>
-                </ul>
-            </div>
-            <div class="iletisim-container">
-
-                <div class="haberdarol">
-                    Yeni Sanatlardan Haberdar Ol!
-                </div>
-                <input tpye="text" class="input1" placeholder="e mail">
-                <br>
-                <input type="button" value="Haberdar Et !" class="button1">
-
-            </div>
-            <div class="footer-orta">
-
-
-            </div>
-
-
-
-        </div>
-    </body>
+    </div>
+</body>
 </html>
