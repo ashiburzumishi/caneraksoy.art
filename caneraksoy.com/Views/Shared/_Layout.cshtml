@@ -5,104 +5,17 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="~/Content/fontawesome.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 
 
 <style>
 
-    @@media screen and (max-width: 700px) {
-        .header-container {
-            color: wheat;
-        }
-    }
-
-    @@media screen and (max-width:950px ) {
-        .header-container{height:160px !important;}
-        .header-container .logo{margin:auto !important; float:none !important;}
-        .header-container .menu-container{float:none !important; margin:auto!important;}
-        .footer-container {
-            height: 150px !important;
-        }
-
-        .social {
-            margin-left: 80px !important;
-        }
-
-        .footer-container .haberdarol {
-            margin-left: 80px !important;
-        }
-
-        .footer-container .input1 {
-            margin-left: 50px !important;
-        }
-
-        .footer-container .button1 {
-            margin-left: 250px !important;
-        }
-    }
 
     body {
         margin: 0;
         color: #333;
     }
-
-
-    .header-container {
-        height: 100px;
-        width: 100%;
-        background-color: #222;
-        color: #444;
-        z-index: 5;
-    }
-
-    .logo {
-        height: 100px;
-        width: 100px;
-        background-color: black;
-        float: left;
-    }
-
-    .menu-container {
-        height: 50px;
-        width: 230px;
-        margin-right: 10px;
-        float: right;
-        margin-top: 23px;
-    }
-
-        .menu-container li {
-            list-style: none;
-            text-decoration: none;
-            float: left;
-            font-size: 20px;
-        }
-
-    .un {
-        display: inline-block;
-    }
-
-        .un:after {
-            content: '';
-            width: 0px;
-            height: 1px;
-            display: block;
-            background: black;
-            transition: 300ms;
-        }
-
-        .un:hover:after {
-            width: 100%;
-        }
-
-    .menu-container a {
-        text-decoration: none;
-        color: black;
-        font-family: "Cabin", Arial, Helvetica, sans-serif;
-        transition: all 1s;
-    }
-
-
 
     .footer-container {
         height: 100px;
@@ -135,9 +48,9 @@
         background-color: #444444;
     }
 
-    .footer-container .button1 {
+    #letmeknow .button1 {
         margin-left: 200px;
-        margin-top: -18px;
+        margin-top:-7px;
         background-color: #444444;
         border: none;
         border-radius: 2px;
@@ -159,7 +72,7 @@
         text-decoration: none;
         width: 400px;
         height: 75px;
-        margin-top: 3px;
+        margin-top: 0px;
     }
 
         .social li {
@@ -252,62 +165,154 @@
         height: 75px;
         width: 200px;
     }
+
+    .yenimenu {
+        text-align: center;
+    }
+
+    #menu-button {
+        background-color: #222;
+        height: 80px;
+        color: black;
+        float: left;
+        padding-top: 25px;
+        text-decoration: none;
+    }
+
+        #menu-button a {
+            color: black;
+            text-decoration: none;
+            font-family: "Cabin", Arial, Helvetica, sans-serif;
+        }
+
+    #socialmediabutton {
+        height: 100px;
+        background-color: #222;
+        float: left;
+        border: 1px solid black;
+    }
+
+    #letmeknow {
+        height: 100px;
+        background-color: #222;
+        float: right;
+        border: 1px solid black;
+    }
+
+    .footer {
+        background-color: #222;
+        height: 100px;
+       
+    }  
+   #letmeknow .input1{float:left;}
+   #letmeknow .button1{float:left; margin-left:10px; }
 </style>
 
 
 
 
 <body>
+    <div id="container-yenimenu">
+        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-2" id="menu-button">
 
-    <div class="header-container">
-
-        <div class="logo">
         </div>
 
-        <div class="menu-container">
+        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-2" id="menu-button">
+            <div class="yenimenu"> <a href=""><strong>İletişim</strong></a></div>
+        </div>
 
-            <ul class="menu">
-                <li class="un"><a href=""> Hakkımda</a></li>
-                <li class="un"><i class="fas fa-paint-brush"></i></li>
-                <li class="un"><a href="">Portfolyo</a></li>
-            </ul>
+        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-2" id="menu-button">
+            <div class="yenimenu"> <a href="">Anassayfa</a></div>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-2" id="menu-button">
+            <div class="yenimenu"> <a href="">Sanatlar</a></div>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-2" id="menu-button">
+            <div class="yenimenu"> <a href="">Sanatlar</a></div>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-2" id="menu-button">
+            <div class="yenimenu"> <a href="">Hakkımda</a></div>
+
         </div>
 
 
     </div>
+    <button onclick="myFunction()">Gizle/Göster</button>
+
 
 
     @RenderBody()
 
+    <div class="footer">
+        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-2" id="socialmediabutton">
+            <div class="social-container">
+                <ul class="social">
+                    <li class="facebook"><a href=""><img src="https://i.hizliresim.com/bvNk7n.png" /></a></li>
 
-    <div class="footer-container">
-        <div class="sosyalmedya">
+                    <li class="twitter"><a href=""><img src="https://i.hizliresim.com/lQn36l.png" /></a></li>
 
-            <ul class="social">
-                <li class="facebook"><a href=""><img src="https://i.hizliresim.com/bvNk7n.png" /></a></li>
-
-                <li class="twitter"><a href=""><img src="https://i.hizliresim.com/lQn36l.png" /></a></li>
-
-                <li class="instagram"><a href=""><img src="https://i.hizliresim.com/zGdazB.png" /></a></li>
-            </ul>
-        </div>
-        <div class="iletisim-container">
-
-            <div class="haberdarol">
-                Yeni Sanatlardan Haberdar Ol!
+                    <li class="instagram"><a href=""><img src="https://i.hizliresim.com/zGdazB.png" /></a></li>
+                </ul>
             </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 com-md-6 col-lg-6" id="letmeknow">
+            <div class="haberdarol">
+                <div class="haberdarolext">Yeni Sanatlardan Haberdar Ol!</div>
+            </div>
+
             <input tpye="text" class="input1" placeholder="e mail">
             <br>
             <input type="button" value="Haberdar Et !" class="button1">
-
         </div>
-        <div class="footer-orta">
-
-
-        </div>
-
-
 
     </div>
+
+
+    @*<div class="footer-container">
+            <div class="sosyalmedya">
+
+                <ul class="social">
+                    <li class="facebook"><a href=""><img src="https://i.hizliresim.com/bvNk7n.png" /></a></li>
+
+                    <li class="twitter"><a href=""><img src="https://i.hizliresim.com/lQn36l.png" /></a></li>
+
+                    <li class="instagram"><a href=""><img src="https://i.hizliresim.com/zGdazB.png" /></a></li>
+                </ul>
+            </div>
+            <div class="iletisim-container">
+
+                <div class="haberdarol">
+                    Yeni Sanatlardan Haberdar Ol!
+                </div>
+                <input tpye="text" class="input1" placeholder="e mail">
+                <br>
+                <input type="button" value="Haberdar Et !" class="button1">
+
+            </div>
+            <div class="footer-orta">
+
+
+            </div>
+
+
+
+        </div>*@
+
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("container-yenimenu");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
 </body>
+
 </html>
