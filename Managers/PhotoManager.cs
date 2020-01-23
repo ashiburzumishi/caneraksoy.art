@@ -1,6 +1,7 @@
 ﻿using Entities;
-
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data;
 
 
 
@@ -27,5 +28,23 @@ namespace Managers
 
             return photograph != null;
     }
+
+        public bool photos(out List<Photograph> photolist)
+        {
+            photolist = new List<Photograph>();
+            SqlCommand command = new SqlCommand("Select * From photographs");
+            var datatable = SqlManager.SqlManager.GetDataTable(command);
+            
+            if(datatable!=null)
+                foreach (DataRow row in datatable.Rows)
+                {
+                    photolist.Add(new Photograph
+                    {
+                        Link = row["Link"].ToString(),
+                    }
+                        );
+                }
+            return photolist != null && photolist.Count > 0;
+        }
 }
 }

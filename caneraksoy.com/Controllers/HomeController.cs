@@ -1,4 +1,7 @@
 ﻿using System.Web.Mvc;
+using Entities;
+using Managers;
+using System.Collections.Generic;
 
 namespace caneraksoy.com.Controllers
 {
@@ -6,7 +9,16 @@ namespace caneraksoy.com.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var photomanager = new PhotoManager();
+            var issucced = photomanager.photos(out List<Photograph> photo);
+            if (issucced)
+            {
+                return View(photo);
+            }
+            else
+            {
+                return RedirectToAction("Home", "Index");
+            }
         }
 
         public ActionResult About()

@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Entities.Photograph>
 @{
     ViewBag.Title = "Index";
 }
@@ -9,15 +9,15 @@
 }
 <html>
 <head>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
 
     <style>
-       
-        
-        
+
+
+
         body {
             background-color: #333;
         }
@@ -26,6 +26,7 @@
             max-width: 900px;
             height: auto;
             background-color: grey;
+            margin: 0;
         }
 
         .grid {
@@ -42,41 +43,41 @@
             position: relative;
             width: 300px;
             max-width: 400px;
-            /*transition: 1s ease;*/
+            transition: 1s ease;
             z-index: 1;
             margin-bottom: 10px;
         }
 
-            .container img {
-                width: 100%;
-                height: auto;
-            }
+        .container img {
+            width: 100%;
+            height: auto;
+        }
 
 
 
-            .container .btn {
-                font-size: 16px;
-                border: none;
-                cursor: pointer;
-                filter: brightness(0) invert(1);
-                height: 25px;
-                padding: 5px;
-                float: left;
-            }
+        #container .btn {
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            filter: brightness(0) invert(1);
+            height: 25px;
+            padding: 5px;
+            float: left;
+        }
 
-            .container .btn-fb {
-                height: 33px;
-                margin-top: -3px;
-            }
-
-
+        .container .btn-fb {
+            height: 33px;
+            margin-top: -3px;
+        }
 
 
 
 
-            .container .btn:hover {
-                filter: brightness(0) invert(1);
-            }
+
+
+        .container .btn:hover {
+            filter: brightness(0) invert(1);
+        }
 
 
 
@@ -106,73 +107,37 @@
             .btn-container .fa-twitter-square:hover {
                 color: #00acee;
             }
-           
     </style>
 </head>
 <body>
 
-    <div class="grid">
 
 
-      
-        <div class="photoakisi">
-            <div class="container grid-item">
-                <div class="buttons">
-                    <img src="https://i.hizliresim.com/zGdZLD.png" alt="Snow" style="width:100%">
 
-                    <div class="btn-container">
-                        <a href=""><span class="fas fa-heart"></span></a>
-                        <a href=""> <span class="fab fa-facebook-square"></span></a>
-                        <a href=""> <span class="fab fa-twitter-square"></span></a>
+    @foreach (var photo in Model)
+        {
+            <div class="grid">
+                <div class="photoakisi">
+                    <div class="container grid-item">
+                        <div class="buttons">
+                            <img src="@photo.Link" alt="Snow" style="width:100%">
+
+                            <div class="btn-container">
+                                <a href=""><span class="fas fa-heart"></span></a>
+                                <a href=""> <span class="fab fa-facebook-square"></span></a>
+                                <a href=""> <span class="fab fa-twitter-square"></span></a>
+                            </div>
+
+                        </div>
                     </div>
-
                 </div>
             </div>
+        }
+  
 
-            <div class="container grid-item">
-                <div class="buttons">
-                    <img c src="https://i.hizliresim.com/Z5Gb6A.jpg" alt="Snow" style="width:100%">
+</body>
 
-                    <div class="btn-container">
-                        <a href=""><span class="fas fa-heart"></span></a>
-                        <a href=""> <span class="fab fa-facebook-square"></span></a>
-                        <a href=""> <span class="fab fa-twitter-square"></span></a>
-                    </div>
-
-                </div>
-            </div>
-
-
-            <div class="container grid-item">
-                <div class="buttons">
-                    <img src="https://i.hizliresim.com/P7XLdQ.jpg" alt="Snow" style="width:100%">
-
-                    <div class="btn-container">
-                        <a href=""><span class="fas fa-heart"></span></a>
-                        <a href=""> <span class="fab fa-facebook-square"></span></a>
-                        <a href=""> <span class="fab fa-twitter-square"></span></a>
-                    </div>
-
-                </div>
-            </div>
-
-
-
-            <div class="container grid-item">
-                <div class="buttons">
-                    <img src="https://i.hizliresim.com/zGdZLD.png" alt="Snow" style="width:100%">
-
-                    <div class="btn-container">
-                        <a href=""><span class="fas fa-heart"></span></a>
-                        <a href=""> <span class="fab fa-facebook-square"></span></a>
-                        <a href=""> <span class="fab fa-twitter-square"></span></a>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
+<body>
     <script>
 
         $('document').ready(function () {
