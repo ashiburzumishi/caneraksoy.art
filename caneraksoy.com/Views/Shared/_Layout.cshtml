@@ -91,75 +91,6 @@
             margin-top: 20px;
         }
 
-    .facebook {
-        display: inline-block;
-    }
-
-        .facebook:after {
-            content: '';
-            width: 0px;
-            height: 1px;
-            display: block;
-            background: #4267B2;
-            transition: 300ms;
-        }
-
-        .facebook:hover:after {
-            width: 100%;
-        }
-
-        .facebook a:hover {
-            color: #4267B2;
-            font-weight: bold;
-        }
-
-        .facebook img:hover {
-            color: #4267B2;
-        }
-
-    .twitter {
-        display: inline-block;
-    }
-
-        .twitter:after {
-            content: '';
-            width: 0px;
-            height: 1px;
-            display: block;
-            background: #00b7eb;
-            transition: 300ms;
-        }
-
-        .twitter:hover:after {
-            width: 100%;
-        }
-
-        .twitter a:hover {
-            color: #00b7eb;
-            font-weight: bold;
-        }
-
-    .instagram {
-        display: inline-block;
-    }
-
-        .instagram:after {
-            content: '';
-            width: 0px;
-            height: 1px;
-            display: block;
-            background: #cd486b;
-            transition: 300ms;
-        }
-
-        .instagram:hover:after {
-            width: 100%;
-        }
-
-        .instagram a:hover {
-            color: #cd486b;
-            font-weight: bold;
-        }
 
 
 
@@ -186,14 +117,13 @@
         height: 100px;
         background-color: #222;
         float: left;
-        
     }
 
     #letmeknow {
         height: 100px;
         background-color: #222;
         float: right;
-        
+        border:1px solid black;
     }
 
     .footer {
@@ -210,6 +140,22 @@
         margin-left: 10px;
     }
 
+    .sosyalmedya-butonlari {
+       margin-top:30px;
+       text-align:center;
+      
+        
+    }
+
+        .sosyalmedya-butonlari a {
+           
+            text-decoration: none;
+          
+            color:#333;
+            font-size:250%;
+            text-align:center;
+        }
+      
 </style>
 
 
@@ -244,7 +190,7 @@
 
 
     </div>
-    <button onclick="myFunction()">Gizle/Göster</button>
+    <button  class="fas fa-bars" onclick="myFunction()"></button>
 
 
 
@@ -252,15 +198,13 @@
 
     <div class="footer">
         <div class="col-xs-6 col-sm-6 com-md-6 col-lg-2" id="socialmediabutton">
-            <div class="social-container">
-                <ul class="social">
-                    <li class="facebook"><a href=""><img src="https://i.hizliresim.com/bvNk7n.png" /></a></li>
-
-                    <li class="twitter"><a href=""><img src="https://i.hizliresim.com/lQn36l.png" /></a></li>
-
-                    <li class="instagram"><a href=""><img src="https://i.hizliresim.com/zGdazB.png" /></a></li>
-                </ul>
-            </div>
+           
+                <div class="sosyalmedya-butonlari">
+                    <a href=""><span class="fab fa-facebook-square"></span></a>
+                    <a href=""><span class="fab fa-twitter-square"></span></a>
+                    <a href=""> <span class="fab fa-instagram"></span></a>
+                </div>
+           
         </div>
 
         <div class="col-xs-6 col-sm-6 com-md-6 col-lg-6" id="letmeknow">
