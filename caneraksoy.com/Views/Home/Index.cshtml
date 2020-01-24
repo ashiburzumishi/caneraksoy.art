@@ -22,16 +22,11 @@
             background-color: #333;
         }
 
-        .photoakisi {
-            max-width: 900px;
-            height: auto;
-            background-color: grey;
-            margin: 0;
-        }
+
 
         .grid {
             margin-top: 10px;
-            margin-left: 10px;
+            /*margin-left: 10px;*/
         }
 
         .grid-item img {
@@ -41,17 +36,17 @@
         .container {
             float: left;
             position: relative;
-            width: 300px;
-            max-width: 400px;
+            /*width: 300px;*/
+            /*max-width: 400px;*/
             transition: 1s ease;
             z-index: 1;
             margin-bottom: 10px;
         }
 
-        .container img {
-            width: 100%;
-            height: auto;
-        }
+            .container img {
+                width: 100%;
+                height: auto;
+            }
 
 
 
@@ -107,33 +102,41 @@
             .btn-container .fa-twitter-square:hover {
                 color: #00acee;
             }
+
+           
     </style>
 </head>
 <body>
 
 
 
+    <div class="grid">
 
-    @foreach (var photo in Model)
+        @foreach (var photo in Model)
         {
-            <div class="grid">
-                <div class="photoakisi">
-                    <div class="container grid-item">
-                        <div class="buttons">
-                            <img src="@photo.Link" alt="Snow" style="width:100%">
 
-                            <div class="btn-container">
-                                <a href=""><span class="fas fa-heart"></span></a>
-                                <a href=""> <span class="fab fa-facebook-square"></span></a>
-                                <a href=""> <span class="fab fa-twitter-square"></span></a>
-                            </div>
-
-                        </div>
-                    </div>
+        <div class="container col-xs-12 col-md-6 col-sm-4 col-lg-3  grid-item">
+            <div class="buttons">
+                <a href="@photo.Link">
+                    <img src="@photo.Link" alt="Snow" style="width:100%">
+                </a>
+              
+                <div class="btn-container">
+                    <a href=""><span class="fas fa-heart"></span></a>
+                    <a href=""> <span class="fab fa-facebook-square"></span></a>
+                    <a href=""> <span class="fab fa-twitter-square"></span></a>
                 </div>
+
             </div>
+
+            
+        </div>
+
+           
         }
-  
+
+    </div>
+
 
 </body>
 
@@ -144,8 +147,8 @@
             $('.grid').masonry({
                 // options
                 itemSelector: '.grid-item',
-                columnWidth: 300,
-                gutter: 10
+
+                gutter: 0
             });
         })
 
