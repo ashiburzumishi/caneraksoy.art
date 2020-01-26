@@ -23,5 +23,10 @@ namespace caneraksoy.com.Controllers
             else
                 return View();
         }
+
+        public ActionResult photoInfo()
+        {
+            return View();
+        }
     }
 }
