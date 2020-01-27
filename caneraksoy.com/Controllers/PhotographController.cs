@@ -24,7 +24,7 @@ namespace caneraksoy.com.Controllers
                 return View();
         }
 
-        public ActionResult photoInfo()
+        public ActionResult photoInfo(int id)
         {
             return View();
         }
