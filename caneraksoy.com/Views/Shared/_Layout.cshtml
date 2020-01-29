@@ -15,7 +15,6 @@
     body {
         margin: 0;
         color: #333;
-        
     }
 
     .footer-container {
@@ -100,7 +99,7 @@
     }
 
     #menu-button {
-        background-color: #222;
+        background-color: #111;
         height: 80px;
         color: black;
         float: left;
@@ -109,10 +108,15 @@
     }
 
         #menu-button a {
-            color: black;
+            color: #444;
             text-decoration: none;
             font-family: "Cabin", Arial, Helvetica, sans-serif;
         }
+
+            #menu-button a:hover {
+                color: #555;
+                font: bold 18px "Cabin", Arial, Helvetica, sans-serif;
+            }
 
     #socialmediabutton {
         height: 100px;
@@ -124,7 +128,6 @@
         height: 100px;
         background-color: #222;
         float: right;
-       
     }
 
     .footer {
@@ -142,21 +145,22 @@
     }
 
     .sosyalmedya-butonlari {
-       margin-top:30px;
-       text-align:center;
-      
-        
+        margin-top: 30px;
+        text-align: center;
     }
 
         .sosyalmedya-butonlari a {
-           
             text-decoration: none;
-          
-            color:#333;
-            font-size:250%;
-            text-align:center;
+            color: #333;
+            font-size: 250%;
+            text-align: center;
         }
-      .fa-bars{background-color:#555; border-radius:2px; border:none;}
+
+    .fa-bars {
+        background-color: #555;
+        border-radius: 2px;
+        border: none;
+    }
 </style>
 
 
@@ -181,17 +185,17 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="">Contact</a></div>
+            <div class="yenimenu"> <a href="">Favorites</a></div>
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="">About</a></div>
+            <div class="yenimenu"> <a href="">Contact</a></div>
 
         </div>
 
 
     </div>
-    <button  class="fas fa-bars" onclick="myFunction()"></button>
+    <button class="fas fa-bars" onclick="myFunction()"></button>
 
 
 
@@ -199,13 +203,13 @@
 
     <div class="footer">
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="socialmediabutton">
-           
-                <div class="sosyalmedya-butonlari">
-                    <a href=""><span class="fab fa-facebook-square"></span></a>
-                    <a href=""><span class="fab fa-twitter-square"></span></a>
-                    <a href=""> <span class="fab fa-instagram"></span></a>
-                </div>
-           
+
+            <div class="sosyalmedya-butonlari">
+                <a href=""><span class="fab fa-facebook-square"></span></a>
+                <a href=""><span class="fab fa-twitter-square"></span></a>
+                <a href=""> <span class="fab fa-instagram"></span></a>
+            </div>
+
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-6" id="letmeknow">
