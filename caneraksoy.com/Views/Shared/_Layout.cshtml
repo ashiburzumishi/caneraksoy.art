@@ -99,23 +99,25 @@
     }
 
     #menu-button {
-        background-color: #111;
+        background-color: #333;
         height: 80px;
         color: black;
         float: left;
         padding-top: 25px;
         text-decoration: none;
+        border-bottom: 1px solid #666;
     }
 
         #menu-button a {
-            color: #444;
+            color: #777;
             text-decoration: none;
-            font-family: "Cabin", Arial, Helvetica, sans-serif;
+            font-family: 'Ink Free';
+            font-size:20px;
         }
 
             #menu-button a:hover {
-                color: #555;
-                font: bold 18px "Cabin", Arial, Helvetica, sans-serif;
+                color: #888;
+                font: bold 18px 'Ink Free';
             }
 
     #socialmediabutton {
@@ -173,11 +175,11 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="">Home Page</a></div>
+            <div class="yenimenu"> <a href="@Url.Action("Index","Home")">Home Page</a></div>
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="">All Arts</a></div>
+            <div class="yenimenu"> <a href="@Url.Action("allArts","Home")">All Arts</a></div>
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
@@ -185,7 +187,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="">Favorites</a></div>
+            <div class="yenimenu"> <a href="">Market</a></div>
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">

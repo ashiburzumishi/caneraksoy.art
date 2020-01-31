@@ -21,18 +21,18 @@ namespace caneraksoy.com.Controllers
             }
         }
 
-        public ActionResult About()
+        public ActionResult allArts ()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var photomanager = new PhotoManager();
+            var issucced = photomanager.photos(out List<Photograph> photo);
+            if (issucced)
+            {
+                return View(photo);
+            }
+            else
+            {
+                return RedirectToAction("Home", "allArts");
+            }
         }
     }
 }
