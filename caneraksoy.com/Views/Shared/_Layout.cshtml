@@ -1,6 +1,4 @@
-﻿
-
-<html>
+﻿<html>
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,9 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 
-
 <style>
-
 
     body {
         margin: 0;
@@ -32,33 +28,6 @@
         width: 380px;
         height: 75px;
         float: right;
-    }
-
-    .haberdarol {
-        margin-top: 10px;
-        margin-left: 40px;
-        font-family: "Cabin", Arial, Helvetica, sans-serif;
-    }
-
-    .input1 {
-        margin-left: 10px;
-        border: none;
-        border-radius: 2px;
-        margin-top: 17px;
-        background-color: #444444;
-    }
-
-    #letmeknow .button1 {
-        margin-left: 200px;
-        margin-top: -7px;
-        background-color: #444444;
-        border: none;
-        border-radius: 2px;
-    }
-
-    .button1:hover {
-        background-color: black;
-        color: white;
     }
 
     .sosyalmedya {
@@ -91,9 +60,6 @@
             margin-top: 20px;
         }
 
-
-
-
     .yenimenu {
         text-align: center;
     }
@@ -112,7 +78,7 @@
             color: #777;
             text-decoration: none;
             font-family: 'Ink Free';
-            font-size:20px;
+            font-size: 20px;
         }
 
             #menu-button a:hover {
@@ -126,24 +92,9 @@
         float: left;
     }
 
-    #letmeknow {
-        height: 100px;
-        background-color: #222;
-        float: right;
-    }
-
     .footer {
         background-color: #222;
         height: 100px;
-    }
-
-    #letmeknow .input1 {
-        float: left;
-    }
-
-    #letmeknow .button1 {
-        float: left;
-        margin-left: 10px;
     }
 
     .sosyalmedya-butonlari {
@@ -163,15 +114,21 @@
         border-radius: 2px;
         border: none;
     }
+
+    .footersag {
+        height: 100px;
+        float: right;
+        background-color: #222222;
+    }
+
+    .sendMeEmail {
+        margin-top: 32px;
+    }
 </style>
-
-
-
 
 <body>
     <div id="container-yenimenu">
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
@@ -183,7 +140,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="">Category</a></div>
+            <div class="yenimenu"> <a href="">Send Art</a></div>
         </div>
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
@@ -192,42 +149,29 @@
 
         <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
             <div class="yenimenu"> <a href="">Contact</a></div>
-
         </div>
-
-
     </div>
     <button class="fas fa-bars" onclick="myFunction()"></button>
-
-
 
     @RenderBody()
 
     <div class="footer">
-        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="socialmediabutton">
+        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-6" id="socialmediabutton">
 
             <div class="sosyalmedya-butonlari">
                 <a href=""><span class="fab fa-facebook-square"></span></a>
                 <a href=""><span class="fab fa-twitter-square"></span></a>
                 <a href=""> <span class="fab fa-instagram"></span></a>
             </div>
-
         </div>
 
-        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-6" id="letmeknow">
-            <div class="haberdarol">
-                <div class="haberdarolext">Yeni Sanatlardan Haberdar Ol!</div>
+        <div class="footersag col-xs-12 col-sm-6 com-md-6 col-lg-6">
+            <div class="sendMeEmail">
+                <input type="text" class="mailInput" placeholder="e mail" />
+                <input type="button" class="mailbutton" value="Send Me Mail" />
             </div>
-
-            <input tpye="text" class="input1" placeholder="e mail">
-            <br>
-            <input type="button" value="Haberdar Et !" class="button1">
         </div>
-
     </div>
-
-
-
 
     <script>
         function myFunction() {
@@ -240,5 +184,4 @@
         }
     </script>
 </body>
-
 </html>

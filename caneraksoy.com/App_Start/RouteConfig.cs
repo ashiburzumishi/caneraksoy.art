@@ -19,7 +19,6 @@ namespace caneraksoy.com
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Photograph", action = "photoInfo", id = UrlParameter.Optional }
             );
-
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿@model List<Entities.Photograph>
 @{
-    ViewBag.Title = "Index";
-}
+                /**/
 
+                ViewBag.Title = "Index";
+}
 
 @{
     ViewBag.Title = "Home Page";
@@ -18,13 +19,9 @@
 
     <style>
 
-
-
         body {
             background-color: #333;
         }
-
-
 
         .grid {
             margin-top: 10px;
@@ -34,7 +31,6 @@
         .grid-item img {
             border-radius: 5px;
         }
-
 
         .container {
             float: left;
@@ -46,39 +42,11 @@
             margin-bottom: 10px;
         }
 
-            .container img {
-                width: 100%;
-                height: auto;
-                border: 2px solid #666;
+            .container:hover .btn-container {
+                visibility: visible;
+                opacity: 1;
+                w
             }
-
-
-
-        #container .btn {
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            filter: brightness(0) invert(1);
-            height: 25px;
-            padding: 5px;
-            float: left;
-        }
-
-        .container .btn-fb {
-            height: 33px;
-            margin-top: -3px;
-        }
-
-
-
-
-
-
-        .container .btn:hover {
-            filter: brightness(0) invert(1);
-        }
-
-
 
         .btn-container {
             padding: 10px;
@@ -88,30 +56,59 @@
             bottom: 10px;
             left: 20px;
             border-radius: 5px;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.7s linear;
         }
 
-            .btn-container a {
-                color: white;
+        .container img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #666;
+        }
+
+        .container .btn-fb {
+            height: 33px;
+            margin-top: -3px;
+        }
+
+        .container .btn:hover {
+            filter: brightness(0) invert(1);
+        }
+
+        .btn-container a {
+            color: white;
+        }
+
+        .btn-container .fa-heart:hover {
+            color: red;
+        }
+
+        .btn-container .fa-heart {
+            color: white;
+            margin-left: 3px;
+        }
+
+        .btn-container .fa-eye {
+            color: white;
+            margin-left: 3px;
+        }
+
+            .btn-container .fa-eye:hover {
+                color: #278b3b;
             }
 
-            .btn-container .fa-heart:hover {
-                color: red;
-            }
+        .btn-container .fa-facebook-square:hover {
+            color: #3b5998;
+        }
 
-            .btn-container .fa-facebook-square:hover {
-                color: #3b5998;
-            }
+        .btn-container .fa-twitter-square:hover {
+            color: #00acee;
+        }
 
-            .btn-container .fa-twitter-square:hover {
-                color: #00acee;
-            }
-
-
-
-            .btn-container .fa-search:hover {
-                color: #EBAF2F;
-            }
-
+        .btn-container .fa-search:hover {
+            color: #EBAF2F;
+        }
 
         .modal-header {
             background-color: #333;
@@ -121,18 +118,17 @@
             background-color: #222;
         }
 
-        .title {
-            color: #777;
-            text-decoration: none;
+        .phototitle {
+            float: right;
+            margin-left: 10px;
             font-family: 'Ink Free';
-            font-size: 30px;
-            text-align: center;
+            color: white;
+            font-size: 18px;
+            margin-top: -2px;
         }
     </style>
 </head>
 <body>
-
-    <div class="title">All Arts</div>
 
     <div class="grid">
 
@@ -145,17 +141,25 @@
                     <a href="@Url.Action("photoInfo","Photograph")/@photo.Id"><img src="@photo.Link" alt="Snow" style="width:100%"></a>
 
                     <div class="btn-container">
-                        <a href=""><span class="fas fa-heart"></span></a>
+
                         <a href=""> <span class="fab fa-facebook-square"></span></a>
                         <a href=""> <span class="fab fa-twitter-square"></span></a>
                         <a href="" data-toggle="modal" data-target="@("#myModal"+photo.Id)" data-backdrop=":false"> <span class="fas fa-search"></span></a> @*Tek bir modal oluşturuyordu id verdik o yüzden*@
+                        @if (photo.Name.Length > 11)
+                        {
+                            string shortname = new string(photo.Name.Take(11).ToArray());
+                            photo.Name = shortname + "...";
+                            <div class="phototitle">@photo.Name </div>
+                        }
+                        else
+                        {
+                            <div class="phototitle">@photo.Name </div>
+                        }
 
-
-
+                        <a href=""><span class="fas fa-heart">1939</span></a>
+                        <span class="fas fa-eye">20.170</span>
                     </div>
-
                 </div>
-
             </div>
 
             <div class="modal fade" id="@("myModal"+photo.Id)" role="dialog">
@@ -169,10 +173,7 @@
                 </div>
             </div>
         }
-
     </div>
-
-
 </body>
 
 <body>
@@ -186,9 +187,6 @@
                 gutter: 0
             });
         })
-
-
-
     </script>
 </body>
 </html>

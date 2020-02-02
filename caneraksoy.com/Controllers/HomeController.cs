@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-using Entities;
+﻿using Entities;
 using Managers;
 using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace caneraksoy.com.Controllers
 {
@@ -21,7 +21,7 @@ namespace caneraksoy.com.Controllers
             }
         }
 
-        public ActionResult allArts ()
+        public ActionResult allArts()
         {
             var photomanager = new PhotoManager();
             var issucced = photomanager.photos(out List<Photograph> photo);

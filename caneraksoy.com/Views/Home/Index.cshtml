@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
 }
 
-
 @{
     ViewBag.Title = "Home Page";
 }
@@ -18,24 +17,18 @@
 
     <style>
 
-
-
         body {
             background-color: #333;
         }
-
-
 
         .grid {
             margin-top: 10px;
             /*margin-left: 10px;*/
         }
 
-
         .grid-item img {
             border-radius: 5px;
         }
-
 
         .container {
             float: left;
@@ -48,43 +41,10 @@
         }
 
             .container:hover .btn-container {
-                display: block;
-                
+                visibility: visible;
+                opacity: 1;
+                w
             }
-
-            .container img {
-                width: 100%;
-                height: auto;
-                border: 2px solid #666;
-            }
-
-
-
-        #container .btn {
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            filter: brightness(0) invert(1);
-            height: 25px;
-            padding: 5px;
-            float: left;
-        }
-
-        .container .btn-fb {
-            height: 33px;
-            margin-top: -3px;
-        }
-
-
-
-
-
-
-        .container .btn:hover {
-            filter: brightness(0) invert(1);
-        }
-
-
 
         .btn-container {
             padding: 10px;
@@ -94,32 +54,60 @@
             bottom: 10px;
             left: 20px;
             border-radius: 5px;
-            display: none;
-            tran
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.7s linear;
         }
 
-            .btn-container a {
-                color: white;
+        .container img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #666;
+        }
+
+        .container .btn-fb {
+            height: 33px;
+            margin-top: -3px;
+        }
+
+        .container .btn:hover {
+            filter: brightness(0) invert(1);
+        }
+
+        .btn-container a {
+            color: white;
+        }
+
+        .btn-container .fa-heart:hover {
+            color: red;
+        }
+
+        .btn-container .fa-heart {
+            color: white;
+            margin-left: 3px;
+        }
+
+        .btn-container .fa-eye {
+            color: white;
+            margin-left: 3px;
+            font-family: 'Ink Free'
+        }
+
+            .btn-container .fa-eye:hover {
+                color: #278b3b;
             }
 
-            .btn-container .fa-heart:hover {
-                color: red;
-            }
+        .btn-container .fa-facebook-square:hover {
+            color: #3b5998;
+        }
 
-            .btn-container .fa-facebook-square:hover {
-                color: #3b5998;
-            }
+        .btn-container .fa-twitter-square:hover {
+            color: #00acee;
+        }
 
-            .btn-container .fa-twitter-square:hover {
-                color: #00acee;
-            }
-
-
-
-            .btn-container .fa-search:hover {
-                color: #EBAF2F;
-            }
-
+        .btn-container .fa-search:hover {
+            color: #EBAF2F;
+        }
 
         .modal-header {
             background-color: #333;
@@ -136,52 +124,54 @@
             color: white;
             font-size: 18px;
             margin-top: -2px;
+            font-family: 'Ink Free'
+        }
+        .topfive{height:40px;
+                 background-color:#777777;
+                 border-radius:5px;
+                 margin-bottom:5px;
+                 text-align:center;
+                 font-family:'Ink Free';
+                 color:black;
+                 font-size:24px;
+
         }
     </style>
 </head>
 <body>
 
-
-
     <div class="grid">
+        <div class="container col-xs-6 col-md-12 col-sm-4 col-lg-3  grid-item">
+            <div class="topfive"><strong>Most Viewed</strong></div>
+            <div class="buttons">
 
-        @foreach (var photo in Model)
-        {
+                <a href=""><img src="https://i.hizliresim.com/2OMO8L.jpg" alt="Snow" style="width:100%"></a>
 
-            <div class="container col-xs-6 col-md-12 col-sm-4 col-lg-3  grid-item">
-                <div class="buttons">
+                <div class="btn-container">
 
-                    <a href="@Url.Action("photoInfo","Photograph")/@photo.Id"><img src="@photo.Link" alt="Snow" style="width:100%"></a>
+                    <a href=""> <span class="fab fa-facebook-square"></span></a>
+                    <a href=""> <span class="fab fa-twitter-square"></span></a>
+                    <a href="" data-toggle="modal" data-target="" data-backdrop=":false"> <span class="fas fa-search"></span></a> @*Tek bir modal oluşturuyordu id verdik o yüzden*@
+                    <div class="phototitle"></div>
 
-                    <div class="btn-container">
-                        <a href=""><span class="fas fa-heart"></span></a>
-                        <a href=""> <span class="fab fa-facebook-square"></span></a>
-                        <a href=""> <span class="fab fa-twitter-square"></span></a>
-                        <a href="" data-toggle="modal" data-target="@("#myModal"+photo.Id)" data-backdrop=":false"> <span class="fas fa-search"></span></a> @*Tek bir modal oluşturuyordu id verdik o yüzden*@
-                        <div class="phototitle">@photo.Name Dancing Lady</div>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="modal fade" id="@("myModal"+photo.Id)" role="dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <img src="@photo.Link" style="width:100%">
-                    </div>
+                    <a href=""><span class="fas fa-heart">1939</span></a>
+                    <span class="fas fa-eye">20.170</span>
                 </div>
             </div>
+        </div>
+
+        <div class="modal fade"  role="dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img src="" style="width:100%">
+                </div>
+            </div>
+        </div>
         }
-
     </div>
-
-
 </body>
 
 <body>
@@ -195,9 +185,6 @@
                 gutter: 0
             });
         })
-
-
-
     </script>
 </body>
 </html>

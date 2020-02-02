@@ -41,7 +41,8 @@ namespace Managers
                     photolist.Add(new Photograph
                     {
                         Link = row["Link"].ToString(),
-                        Id = int.Parse( row["Id"].ToString()),
+                        Id = int.Parse(row["Id"].ToString()),
+                        Name = row["Name"].ToString(),
                     }
                         );
                 }
