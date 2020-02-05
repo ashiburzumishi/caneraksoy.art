@@ -14,129 +14,8 @@
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="~/Content/Site.css" rel="stylesheet" />
 
-    <style>
-
-        body {
-            background-color: #E8E8E8;
-        }
-
-        .grid {
-            margin-top: 10px;
-            /*margin-left: 10px;*/
-        }
-
-        .grid-item img {
-            border-radius: 5px;
-        }
-
-        .container {
-            float: left;
-            position: relative;
-            /*width: 300px;*/
-            /*max-width: 400px;*/
-            transition: 1s ease;
-            z-index: 1;
-            margin-bottom: 10px;
-        }
-
-            .container:hover .btn-container {
-                visibility: visible;
-                opacity: 1;
-                w
-            }
-
-        .btn-container {
-            padding: 10px;
-            height: 40px;
-            background-color: rgba(0,0,0,0.2);
-            position: absolute;
-            bottom: 10px;
-            left: 20px;
-            border-radius: 5px;
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.7s linear;
-        }
-
-        .container img {
-            width: 100%;
-            height: auto;
-            border: 2px solid white;
-        }
-
-        .container .btn-fb {
-            height: 33px;
-            margin-top: -3px;
-        }
-
-        .container .btn:hover {
-            filter: brightness(0) invert(1);
-        }
-
-        .btn-container a {
-            color: white;
-        }
-
-        .btn-container .fa-heart:hover {
-            color: red;
-        }
-
-        .btn-container .fa-heart {
-            color: white;
-            margin-left: 3px;
-        }
-
-        .btn-container .fa-eye {
-            color: white;
-            margin-left: 3px;
-            font-family: 'Ink Free'
-        }
-
-            .btn-container .fa-eye:hover {
-                color: #278b3b;
-            }
-
-        .btn-container .fa-facebook-square:hover {
-            color: #3b5998;
-        }
-
-        .btn-container .fa-twitter-square:hover {
-            color: #00acee;
-        }
-
-        .btn-container .fa-search:hover {
-            color: #EBAF2F;
-        }
-
-        .modal-header {
-            background-color: #333;
-        }
-
-        .modal-body {
-            background-color: #222;
-        }
-
-        .phototitle {
-            float: right;
-            margin-left: 10px;
-            font-family: 'Ink Free';
-            color: white;
-            font-size: 18px;
-            margin-top: -2px;
-            font-family: 'Ink Free'
-        }
-        .topfive{height:40px;
-                 background-color:white;
-                 border-radius:5px;
-                 margin-bottom:5px;
-                 text-align:center;
-                 font-family:'Ink Free';
-                 color:black;
-                 font-size:24px;
-
-        }
-    </style>
 </head>
 <body>
 
@@ -154,7 +33,7 @@
                     <a href="" data-toggle="modal" data-target="" data-backdrop=":false"> <span class="fas fa-search"></span></a> @*Tek bir modal oluşturuyordu id verdik o yüzden*@
                     <div class="phototitle"></div>
 
-                    <a href=""><span class="fas fa-heart">1939</span></a>
+                    <i onclick="dislike(this)" class="fa fa-heart"> Number:</i>
                     <span class="fas fa-eye">20.170</span>
                 </div>
             </div>
@@ -185,6 +64,10 @@
                 gutter: 0
             });
         })
+
+        function dislike(x) {
+  x.classList.toggle("fa-heart-broken");
+}
     </script>
 </body>
 </html>
