@@ -8,124 +8,43 @@
 
 <style>
 
-    body {
-        margin: 0;
-        color: #333;
-    }
+    body { margin: 0; color: #333; }
 
-    .footer-container {
-        height: 100px;
-        width: 100%;
-        background-color: #222;
-        /*margin-top: 100px;
-        position: fixed;*/
-        bottom: 0;
-        z-index: 1000;
-        color: #444;
-        position:
-    }
+    .footer-container { height: 100px; width: 100%; background-color: #222;  bottom: 0; z-index: 1000; color: #444; }
 
-    .iletisim-container {
-        width: 380px;
-        height: 75px;
-        float: right;
-    }
+    .iletisim-container { width: 380px; height: 75px; float: right; }
 
-    .sosyalmedya {
-        height: 75px;
-        width: auto;
-        float: left;
-    }
+    .sosyalmedya { height: 75px; width: auto; float: left; }
 
-    .social {
-        list-style: none;
-        text-decoration: none;
-        width: 400px;
-        height: 75px;
-        margin-top: 0px;
-    }
+    .social { list-style: none; text-decoration: none; width: 400px; height: 75px; margin-top: 0px; }
 
-        .social li {
-            text-decoration: none;
-            float: left;
-        }
+        .social li { text-decoration: none; float: left; }
 
-        .social a {
-            text-decoration: none;
-            color: black;
-            font-family: "Cabin", Arial, Helvetica, sans-serif;
-        }
+        .social a { text-decoration: none; color: black; font-family: "Cabin", Arial, Helvetica, sans-serif; }
 
-        .social img {
-            height: 40px;
-            margin-top: 20px;
-        }
+        .social img { height: 40px; margin-top: 20px; }
 
-    .yenimenu {
-        text-align: center;
-    }
+    .yenimenu { text-align: center; }
 
-    #menu-button {
-        background-color: white;
-        height: 80px;
-        color: black;
-        float: left;
-        padding-top: 25px;
-        text-decoration: none;
-        border-bottom: 1px solid #888;
-    }
+    #menu-button { background-color: white; height: 80px; color: black; float: left; padding-top: 25px; text-decoration: none; border-bottom: 1px solid #888; }
 
-        #menu-button a {
-            color: #777;
-            text-decoration: none;
-            font-family: 'Ink Free';
-            font-size: 20px;
-        }
+        #menu-button a { color: #777; text-decoration: none; font-family: 'Ink Free'; font-size: 20px; }
 
-            #menu-button a:hover {
-                color: #888;
-                font: bold 18px 'Ink Free';
-                
-            }
+            #menu-button a:hover { color: #888; font: bold 18px 'Ink Free'; }
 
-    #socialmediabutton {
-        height: 100px;
-        background-color: #222;
-        float: left;
-    }
+    #socialmediabutton { height: 100px; background-color: #222; float: left; }
 
-    .footer {
-        background-color: #222;
-        height: 100px;
-    }
+    .footer { background-color: #222; height: 100px; }
 
-    .sosyalmedya-butonlari {
-        margin-top: 30px;
-        text-align: center;
-    }
+    .sosyalmedya-butonlari { margin-top: 30px; text-align: center; }
 
-        .sosyalmedya-butonlari a {
-            text-decoration: none;
-            color: #333;
-            font-size: 250%;
-            text-align: center;
-        }
+        .sosyalmedya-butonlari a { text-decoration: none; color: #333; font-size: 250%; text-align: center; }
 
-    .fa-bars {
-        background-color: white;
-        border-radius: 2px;
-        border: none;
-    }
+    .fa-bars { background-color: white; border-radius: 2px; border: none; }
 
-    .footersag {
-        height: 100px;
-        float: right;
-        background-color: #222222;
-    }
+    .footersag { height: 100px; float: right; background-color: #222222; }
 
-    .sendMeEmail {
-        margin-top: 32px;
-    }
+    .sendMeEmail { margin-top: 32px; }
 </style>
 
 <body>
@@ -153,7 +72,7 @@
             <div class="yenimenu"> <a href="">Contact</a></div>
         </div>
     </div>
-    <button class="fas fa-bars" onclick="myFunction()"></button>
+    <button class="fas fa-bars" onclick="myFunction()" id="hidebutton"></button>
 
     @RenderBody()
 
@@ -176,14 +95,11 @@
     </div>
 
     <script>
-        function myFunction() {
-            var x = document.getElementById("container-yenimenu");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
+      
+        $("#hidebutton").click(function () {
+            $("#container-yenimenu").toggle(1000);
+        });
+
     </script>
 </body>
 </html>
