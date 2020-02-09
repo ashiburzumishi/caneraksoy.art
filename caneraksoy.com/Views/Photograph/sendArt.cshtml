@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "sendArt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <style>
+
+        .sendmeart-container {
+            margin: 0 auto;
+            margin-bottom: 15px;
+            background-color: #bbb7b7;
+            width: 500px;
+            height: 500px;
+            border-radius: 5px;
+            border: 1px solid #666;
+        }
+
+        .title {
+            font-family: 'Ink Free';
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            padding-top: 5px;
+            background-color: #777777;
+            border-radius: 5px;
+            width:auto;
+            margin-top:10px;
+        }
+        .form{padding-top:20px;}
+        .form-control{margin-bottom:15px; margin-top:15px;}
+    </style>
+</head>
+
+
+<body>
+
+    <div class="sendmeart-container col-xs-12 col-md-12 col-sm-12 col-lg-12">
+        <div class="title">Send Me An Art !</div>
+        <div class="form">
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="text" name="Name" class="form-control" placeholder="Write Your Arts Name" />
+                    <input type="text" name="Detail" class="form-control" placeholder="Write Your Arts Detail" />
+                    
+                        <input type="text" name="Link" class="form-control" placeholder="Copy Your Arts Link" />
+                        <div style="text-align:center; font-family: 'Ink Free';color:white; font-size:18px; ">Or</div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Load Your Art From Your Local</label>
+                        </div>
+               
+                    <input type="text" name="artOwner" class="form-control" placeholder="Your Name" />
+                    <input type="text" name="ownerMail" class="form-control" placeholder="Your E-mail Adress" />
+                    <select name="Category" class="custom-select custom-select-sm">
+                        <option selected>Choose Your Arts Category</option>
+                        <option value="1">Vector</option>
+                        <option value="2">Logo</option>
+                        <option value="3">Portrait</option>
+                        <option value="4">View</option>
+                        <option value="5">None One Of These</option>
+                    </select>
+                    <input type="submit" value="Send It Now" style="margin-top:10px;" />
+
+
+                </div>
+
+
+
+
+            </form>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+
+</html>
+

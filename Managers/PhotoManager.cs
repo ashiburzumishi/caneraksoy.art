@@ -48,5 +48,32 @@ namespace Managers
                 }
             return photolist != null && photolist.Count > 0;
         }
+
+        public bool addArt(string Name, string Detail, string Link, string artOwner, string ownerMail, string Category, out Photograph art)
+        {
+            art = null;
+            SqlCommand sendArtCommand = new SqlCommand("addArt");
+            sendArtCommand.CommandType = CommandType.StoredProcedure;
+            sendArtCommand.Parameters.AddWithValue("Name", Name);
+            sendArtCommand.Parameters.AddWithValue("Detail", Detail);
+            sendArtCommand.Parameters.AddWithValue("Link", Link);
+            sendArtCommand.Parameters.AddWithValue("artOwner", artOwner);
+            sendArtCommand.Parameters.AddWithValue("ownerMail", ownerMail);
+            sendArtCommand.Parameters.AddWithValue("Category", Category);
+
+            var datatable= SqlManager.SqlManager.GetDataTable(sendArtCommand);
+
+            art = new Photograph
+            {
+                Name = Name.ToString(),
+                Detail = Detail.ToString(),
+                Link = Link.ToString(),
+                artOwner = artOwner.ToString(),
+                ownerMail = ownerMail.ToString(),
+                Category = Category.ToString()
+
+            };
+            return art != null;
+        }
 }
 }

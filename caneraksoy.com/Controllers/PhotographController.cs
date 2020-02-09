@@ -28,5 +28,24 @@ namespace caneraksoy.com.Controllers
         {
             return View();
         }
+
+        [httpget]
+        public ActionResult sendArt()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult sendArt(Photograph art)
+        {
+            var artmanager = new PhotoManager();
+            var isSucced = artmanager.addArt(art.Name, art.Detail, art.Link, art.artOwner, art.ownerMail, art.Category, out Photograph newart);
+            if (isSucced)
+            {
+                return RedirectToAction("", "");
+            }
+            else
+                return View();
+
+        }
     }
 }
