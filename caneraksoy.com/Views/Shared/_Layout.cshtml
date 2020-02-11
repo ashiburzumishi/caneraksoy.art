@@ -4,13 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="~/Content/fontawesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <style>
 
     body { margin: 0; color: #333; }
 
-    .footer-container { height: 100px; width: 100%; background-color: #222;  bottom: 0; z-index: 1000; color: #444; }
+    .footer-container { height: 100px; width: 100%; background-color: #222; bottom: 0; z-index: 1000; color: #444; }
 
     .iletisim-container { width: 380px; height: 75px; float: right; }
 
@@ -27,6 +28,7 @@
     .yenimenu { text-align: center; }
 
     #menu-button { background-color: white; height: 80px; color: black; float: left; padding-top: 25px; text-decoration: none; border-bottom: 1px solid #888; }
+     #menu-button-darkmode { background-color: black; height: 80px; color: black; float: left; padding-top: 25px; text-decoration: none; border-bottom: 1px solid #888; }
 
         #menu-button a { color: #777; text-decoration: none; font-family: 'Ink Free'; font-size: 20px; }
 
@@ -45,6 +47,10 @@
     .footersag { height: 100px; float: right; background-color: #222222; }
 
     .sendMeEmail { margin-top: 32px; }
+
+    #hidebutton { border: none; text-align: center; background-color: #e8e8e8; font-size: 20px; margin-left:12px; }
+
+    #mode { border: none; text-align: center; background-color: #e8e8e8; font-size: 20px; }
 </style>
 
 <body>
@@ -72,7 +78,8 @@
             <div class="yenimenu"> <a href="">Contact</a></div>
         </div>
     </div>
-    <button class="fas fa-bars" onclick="myFunction()" id="hidebutton"></button>
+    <button class="fas fa-arrow-alt-circle-up" onclick="hidef()" id="hidebutton"></button>
+    <button class="fas fa-sun" onclick="changeTheme()" id="mode"></button>
 
     @RenderBody()
 
@@ -95,10 +102,22 @@
     </div>
 
     <script>
-      
-        $("#hidebutton").click(function () {
-            $("#container-yenimenu").toggle(1000);
-        });
+
+        function hidef() {
+
+            $("#hidebutton").toggleClass('fa-arrow-alt-circle-down').toggleClass('fa-arrow-alt-circle-up');
+            $("#container-yenimenu").slideToggle(1000);
+
+        }
+
+        function changeTheme() {
+            
+            $("#mode").toggleClass('fa-sun').toggleClass('fa-moon');
+            
+             
+            
+        }
+
 
     </script>
 </body>

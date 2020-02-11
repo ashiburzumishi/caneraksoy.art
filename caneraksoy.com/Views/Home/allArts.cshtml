@@ -58,20 +58,38 @@
         .modal-body { background-color: #222; }
 
         .phototitle { float: right; margin-left: 10px; font-family: 'Ink Free'; color: white; font-size: 18px; margin-top: -2px; }
-        #category{max-width:290px;}
-        .category{}
+        #category{max-width:200px; height:40px; font-size:18px;}
+        .category{margin-top:10px; margin-left:15px; }
+        .artby{margin-top:10px; margin-left:15px;}
+        #artby{ max-width:120px; height:40px; font-size:18px; }
+        .categories{margin-top:10px;}
+        
     </style>
 </head>
 <body>
-    <div class="category"><select name="Category" class="custom-select custom-select-sm" id="category">
-    <option selected>Choose A Category</option>
-    <option value="1">Vector</option>
-    <option value="2">Logo</option>
-    <option value="3">Portrait</option>
-    <option value="4">View</option>
-    <option value="5">None One Of These</option>
-</select></div>
-    
+    <div class="categories">
+        <span class="category">
+            <select name="Category" class="custom-select custom-select-sm" id="category">
+                <option selected>Choose A Category</option>
+                <option value="1">Vector</option>
+                <option value="2">Logo</option>
+                <option value="3">Portrait</option>
+                <option value="4">View</option>
+                <option value="5">None One Of These</option>
+            </select>
+        </span>
+
+        <span class="categories">
+            <select name="artby" class="custom-select custom-select-sm" id="artby">
+                <option selected>Art By ...</option>
+                <option value="1">Art By Me</option>
+                <option value="2">Art by You</option>
+
+            </select>
+        </span>
+    </div>
+  
+
     <div class="grid">
 
         @foreach (var photo in Model)
