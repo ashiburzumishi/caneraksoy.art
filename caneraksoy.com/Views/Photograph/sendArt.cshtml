@@ -40,20 +40,20 @@
     <div class="sendmeart-container col-xs-12 col-md-12 col-sm-12 col-lg-12">
         <div class="title">Send Me An Art !</div>
         <div class="form">
-            <form method="post" action="" enctype="multipart/form-data">
+            <form name="sendart" onsubmit="return validateForm(), alertColor()" method="post" action="" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="text" name="Name" class="form-control" placeholder="Write Your Art's Name" />
-                    <input type="text" name="Detail" class="form-control" placeholder="Write Your Art's Detail" />
+                    <input type="text" name="Name" class="form-control" placeholder="Write Your Art's Name" id="artname" />
+                    <input type="text" name="Detail" class="form-control" placeholder="Write Your Art's Detail" id="artdetail"/>
                     
-                        <input type="text" name="Link" class="form-control" placeholder="Copy Your Art's Link" />
+                        <input type="text" name="Link" class="form-control" placeholder="Copy Your Art's Link" id="artlink" />
                         <div style="text-align:center; font-family: 'Ink Free';color:white; font-size:18px; ">Or</div>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="customFile">
                             <label class="custom-file-label" for="customFile">Load Your Art From Your Local</label>
                         </div>
                
-                    <input type="text" name="artOwner" class="form-control" placeholder="Your Name" />
-                    <input type="text" name="ownerMail" class="form-control" placeholder="Your E-mail Adress" />
+                    <input type="text" name="artOwner" class="form-control" placeholder="Your Name" id="ownername"/>
+                    <input type="text" name="ownerMail" class="form-control" placeholder="Your E-mail Adress" id="ownermail"/>
                     <select name="Category" class="custom-select custom-select-sm">
                         <option selected>Choose Your Art's Category</option>
                         <option value="1">Vector</option>
@@ -62,7 +62,7 @@
                         <option value="4">View</option>
                         <option value="5">None One Of These</option>
                     </select>
-                    <input type="submit" value="Send It Now" style="margin-top:10px;" />
+                    <input type="submit"  value="Send It Now" style="margin-top:10px;" />
 
 
                 </div>
@@ -82,7 +82,44 @@
 
 
 </body>
+<body>
+    <script>
+        function validateForm() {
+            var x = document.forms["sendart"]["Name"].value;
+            var y = document.forms["sendart"]["Detail"].value;
+            var z = document.forms["sendart"]["Link"].value;
+            var a = document.forms["sendart"]["artOwner"].value;
+            var b = document.forms["sendart"]["ownerMail"].value;
+            
+            
+            if (x == ""||y==""||z==""||a==""||b=="") {
+                alert("You Must Fill In All Fields");
 
+                
+                return false;
+            }
+
+            function alertColor() {
+                var x = document.getElementById("artname");
+                var y = document.getElementById("artdetail");
+                var z = document.getElementById("artlink");
+                var a = document.getElementById("ownername");
+                var b = document.getElementById("ownermail");
+
+                var list = [x, y, z, a, b];
+                var i;
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i].value.length < 1) {
+                        list[i].style.backgroundColor = "red";
+                    }
+
+                }
+
+            }
+        }
+
+    </script>
+</body>
 
 </html>
 
