@@ -62,7 +62,8 @@
                         <option value="4">View</option>
                         <option value="5">None One Of These</option>
                     </select>
-                    <input type="submit"  value="Send It Now" style="margin-top:10px;" />
+                   
+                    <button onclick="redalert()" value="Send It Now" style="margin-top:15px; border:2px solid #ced4da; background-color: #ffffff; color: #495057 ;  border-radius:5px; ">Send It Now</button>
 
 
                 </div>
@@ -96,28 +97,26 @@
                 alert("You Must Fill In All Fields");
 
                 
-                return false;
-            }
-
-            function alertColor() {
-                var x = document.getElementById("artname");
-                var y = document.getElementById("artdetail");
-                var z = document.getElementById("artlink");
-                var a = document.getElementById("ownername");
-                var b = document.getElementById("ownermail");
-
-                var list = [x, y, z, a, b];
-                var i;
-                for (var i = 0; i < list.length; i++) {
-                    if (list[i].value.length < 1) {
-                        list[i].style.backgroundColor = "red";
-                    }
-
-                }
-
-            }
+                
+            }       
         }
-
+       
+        window.redalert= function() {
+        var f1 = document.getElementById("artname");
+        var f2 = document.getElementById("artdetail");
+        var f3 = document.getElementById("artlink");
+        var f4 = document.getElementById("ownername");
+        var f5 = document.getElementById("ownermail");
+        var list = [f1,f2,f3,f4,f5];
+        var i;
+            for (i = 0; i < list.length; i++) {
+                if (list[i].value.length < 1) {
+                    list[i].style.backgroundColor = "#871800";
+          }
+            }
+            return false;
+        }
+        
     </script>
 </body>
 
