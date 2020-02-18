@@ -43,6 +43,11 @@ namespace Managers
                         Link = row["Link"].ToString(),
                         Id = int.Parse(row["Id"].ToString()),
                         Name = row["Name"].ToString(),
+                        Like = int.Parse(row["likeCount"].ToString()),
+                        Category=row["Detail"].ToString(),
+                        artOwner=row["artOwner"].ToString(),
+                        ownerMail=row["ownerMail"].ToString(),
+                        
                     }
                         );
                 }

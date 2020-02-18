@@ -9,5 +9,6 @@
         public string Category { get; set; }
         public string artOwner { get; set; }
         public string ownerMail { get; set; }
+        public int Like { get; set; }
     }
 }
