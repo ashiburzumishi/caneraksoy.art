@@ -1,5 +1,6 @@
 ﻿using Entities;
 using Managers;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace caneraksoy.com.Controllers
@@ -46,6 +47,23 @@ namespace caneraksoy.com.Controllers
             else
                 return View();
 
+        }
+
+
+        public ActionResult archive()
+        {
+            var archivemanager = new PhotoManager();
+            var isSucced = archivemanager.photos(out List<Photograph> archive);
+            if (isSucced)
+            {
+                return View(archive);
+            }
+            else
+            {
+                return View();
+            }
+
+           
         }
     }
 }

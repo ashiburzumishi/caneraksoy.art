@@ -1,0 +1,81 @@
+﻿@model List<Entities.Photograph>
+@{
+    ViewBag.Title = "archive";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body { background-color: #E8E8E8; }
+    #searchInput { background-position: 10px 12px; background-repeat: no-repeat; width: 100%; font-size: 16px; padding: 12px 20px 12px 40px; border: 1px solid #ddd; margin-top: 10px; margin-top: 40px; }
+
+    #searchTable { border-collapse: collapse; width: 100%; border: 1px solid #ddd; color: #888; text-decoration: none; font-family: 'Ink Free'; font-size: 20px; }
+
+        #searchTable th, #searchTable td { text-align: left; padding: 12px; }
+
+    #searchTable tr { border-bottom: 1px solid #ddd; background-color: #e2e2e2 }
+
+    #searchTable tr.header, #searchTable tr:hover { background-color: #f7f7f7 }
+
+    .table-container { max-width: 1000px; margin: auto; margin: 0 auto; margin-bottom: 15px; background-color: #bbb7b7; border-radius: 5px; border: 1px solid #666; }
+
+    .title { font-family: 'Ink Free'; color: white; font-size: 18px; text-align: center; padding-top: 5px; background-color: #777777; border-radius: 5px; width: 100%; margin-top: 10px; }
+
+    .table-secondContainer { width: 97%; margin-left: 1.5%; padding-bottom: 10px; border-radius: 5px; }
+</style>
+
+
+
+
+
+
+<div class="table-container">
+    <div class="table-secondContainer">
+        <div class="title">Search Art In Archive</div>
+        <input type="text" style="width:100%;" id="searchInput" onkeyup="myFunction()" placeholder="Search for anythings..">
+
+        <table id="searchTable">
+            <tr class="header">
+                <th style="width:30%;">Name</th>
+                <th style="width:20%;">Detail</th>
+                <th style="width:20%;">By</th>
+                <th style="width:20%;">Category</th>
+                <th style="width:10%;">Like</th>
+            </tr>
+            @foreach (var archive in Model)
+            {
+                <tr>
+                    <td>@archive.Name</td>
+                    <td>@archive.Detail</td>
+                    <td>@archive.artOwner</td>
+                    <td>@archive.Category</td>
+                    <td>@archive.Like</td>
+                </tr>
+            }
+
+
+        </table>
+    </div>
+</div>
+<script>
+    function myFunction() {
+
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("searchTable");
+        tr = table.getElementsByTagName("tr");
+
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

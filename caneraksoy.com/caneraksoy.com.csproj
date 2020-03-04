@@ -190,6 +190,7 @@
     <Content Include="Views\Photograph\photoInfo.cshtml" />
     <Content Include="Views\Home\allArts.cshtml" />
     <Content Include="Views\Photograph\sendArt.cshtml" />
+    <Content Include="Views\Photograph\archive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

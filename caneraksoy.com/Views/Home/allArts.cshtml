@@ -21,15 +21,15 @@
 
         body { background-color: #E8E8E8; }
 
-        .grid { margin-top: 10px;  }
+        .grid { margin-top: 10px; }
 
         .grid-item img { border-radius: 5px; }
 
-        .container { float: left; position: relative;  transition: 1s ease; z-index: 1; margin-bottom: 10px; }
+        .container { float: left; position: relative; transition: 1s ease; z-index: 1; margin-bottom: 10px; }
 
             .container:hover .btn-container { visibility: visible; opacity: 1; w }
 
-        .btn-container { padding: 10px; min-height: 40px; max-height:80px; background-color: rgba(0,0,0,0.2); position: absolute; bottom: 10px; left: 20px; border-radius: 5px; visibility: hidden; opacity: 0; transition: visibility 0s, opacity 0.7s linear; }
+        .btn-container { padding: 10px; min-height: 40px; max-height: 80px; background-color: rgba(0,0,0,0.2); position: absolute; bottom: 10px; left: 20px; border-radius: 5px; visibility: hidden; opacity: 0; transition: visibility 0s, opacity 0.7s linear; }
 
         .container img { width: 100%; height: auto; border: 1px solid #666; }
 
@@ -58,13 +58,12 @@
         .modal-body { background-color: #222; }
 
         .phototitle { float: right; margin-left: 10px; font-family: 'Ink Free'; color: white; font-size: 18px; margin-top: -2px; }
-        #category{max-width:200px; height:40px; font-size:18px;}
-        .category{margin-top:10px; margin-left:15px; }
-        .artby{margin-top:10px; margin-left:15px;}
-        #artby{ max-width:120px; height:40px; font-size:18px; }
-        .categories{margin-top:10px;}
-        #search{height:40px; border-radius:2px; border:1px solid #ced4da; font-size:18px; color: white; padding-bottom:5px; }
-        
+        #category { max-width: 200px; height: 40px; font-size: 18px; }
+        .category { margin-top: 10px; margin-left: 15px; }
+        .artby { margin-top: 10px; margin-left: 15px; }
+        #artby { max-width: 120px; height: 40px; font-size: 18px; }
+        .categories { margin-top: 10px; }
+        #search { height: 40px; border-radius: 2px; border: 1px solid #ced4da; font-size: 18px; color: white; padding-bottom: 5px; }
     </style>
 </head>
 <body>
@@ -89,15 +88,15 @@
             </select>
         </span>
 
-        <input type="text" placeholder=" Search Anything" id="search" onkeyup="search()"/>
+       
     </div>
 
 
-    <div class="grid">
+    <div class="grid" id="searchInGrid">
 
         @foreach (var photo in Model)
         {
-
+       
             <div class="container col-xs-6 col-md-12 col-sm-4 col-lg-3  grid-item">
                 <div class="buttons">
 
@@ -116,16 +115,16 @@
                         {
                             string shortname = new string(photo.Name.Take(11).ToArray());
                             photo.Name = shortname + "...";
-                            <div class="phototitle">@photo.Name </div>
+                            <div class="phototitle" id="searchInTitle">@photo.Name </div>
                         }
                         else
                         {
-                            <div class="phototitle">@photo.Name </div>
+                            <div class="phototitle" id="searchInTitle">@photo.Name </div>
                         }
                     </div>
                 </div>
             </div>
-
+        
             <div class="modal fade" id="@("myModal"+photo.Id)" role="dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -151,6 +150,9 @@
                 gutter: 0
             });
         })
+
+       
+
     </script>
 </body>
 </html>
