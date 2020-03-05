@@ -5,7 +5,10 @@
 }
 
 <style>
-    body { background-color: #E8E8E8; }
+    body { /*background-color: #E8E8E8;*/background: linear-gradient(-45deg, #ffffff, #bcbdbd, #bcbdbd, #3a3a3a);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite; }
+
     #searchInput { background-position: 10px 12px; background-repeat: no-repeat; width: 100%; font-size: 16px; padding: 12px 20px 12px 40px; border: 1px solid #ddd; margin-top: 10px; margin-top: 40px; }
 
     #searchTable { border-collapse: collapse; width: 100%; border: 1px solid #ddd; color: #888; text-decoration: none; font-family: 'Ink Free'; font-size: 20px; }
@@ -21,6 +24,20 @@
     .title { font-family: 'Ink Free'; color: white; font-size: 18px; text-align: center; padding-top: 5px; background-color: #777777; border-radius: 5px; width: 100%; margin-top: 10px; }
 
     .table-secondContainer { width: 97%; margin-left: 1.5%; padding-bottom: 10px; border-radius: 5px; }
+    
+    @@keyframes gradient{
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+    }
+  
+
 </style>
 
 
