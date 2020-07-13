@@ -7,30 +7,14 @@
 <html>
 <head>
     <style>
-        body { background-color: #E8E8E8; }
-        .sendmeart-container {
-            margin: 0 auto;
-            margin-bottom: 15px;
-            background-color: #bbb7b7;
-            max-width: 1000px;
-            /*height: 500px;*/
-            border-radius: 5px;
-            border: 1px solid #666;
-        }
+        body { background-color:black;}
+        .sendmeart-container {  background-image:url(https://i.hizliresim.com/kc6Vxb.png); background-size:100% 100%;  margin: 0 auto; margin-bottom: 15px; /*background-color: #3b4458;*/ max-width: 1000px; max-height:1000px; border-radius: 5px; }
 
-        .title {
-            font-family: 'Ink Free';
-            color: white;
-            font-size: 18px;
-            text-align: center;
-            padding-top: 5px;
-            background-color: #777777;
-            border-radius: 5px;
-            width:auto;
-            margin-top:10px;
-        }
-        .form{padding-top:20px;}
-        .form-control{margin-bottom:15px; margin-top:15px;}
+        .title { font-family: 'Ink Free'; color: white; font-size: 18px; text-align: center; padding-top: 5px; background-color: #283048; border-radius: 5px; width: auto; margin-top: 5px; }
+        .form { padding-top: 20px; height:550px; }
+        .form-control { margin-bottom: 15px; margin-top: 15px; }
+
+    .sendmeart-secondcontainer{max-width:700px; max-height:1000px; margin:auto;}
     </style>
 </head>
 
@@ -38,43 +22,46 @@
 <body>
 
     <div class="sendmeart-container col-xs-12 col-md-12 col-sm-12 col-lg-12">
-        <div class="title">Send Me An Art !</div>
-        <div class="form">
-            <form name="sendart" onsubmit="return validateForm(), alertColor()" method="post" action="" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input type="text" name="Name" class="form-control" placeholder="Write Your Art's Name" id="artname" />
-                    <input type="text" name="Detail" class="form-control" placeholder="Write Your Art's Detail" id="artdetail"/>
-                    
+        <div class="sendmeart-secondcontainer">
+            <div></div>
+            <div class="title">Send Me An Art !</div>
+            <div class="form">
+                <form name="sendart" onsubmit="return validateForm(), alertColor()" method="post" action="" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text" name="Name" class="form-control" placeholder="Write Your Art's Name" id="artname" />
+                        <input type="text" name="Detail" class="form-control" placeholder="Write Your Art's Detail" id="artdetail" />
+
                         <input type="text" name="Link" class="form-control" placeholder="Copy Your Art's Link" id="artlink" />
                         <div style="text-align:center; font-family: 'Ink Free';color:white; font-size:18px; ">Or</div>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="customFile">
                             <label class="custom-file-label" for="customFile">Load Your Art From Your Local</label>
                         </div>
-               
-                    <input type="text" name="artOwner" class="form-control" placeholder="Your Name" id="ownername"/>
-                    <input type="text" name="ownerMail" class="form-control" placeholder="Your E-mail Adress" id="ownermail"/>
-                    <select name="Category" class="custom-select custom-select-sm">
-                        <option selected>Choose Your Art's Category</option>
-                        <option value="1">Vector</option>
-                        <option value="2">Logo</option>
-                        <option value="3">Portrait</option>
-                        <option value="4">View</option>
-                        <option value="5">None One Of These</option>
-                    </select>
-                   
-                    <button onclick="redalert()" value="Send It Now" style="margin-top:15px; border:2px solid #ced4da; background-color: #ffffff; color: #495057 ;  border-radius:5px; ">Send It Now</button>
+
+                        <input type="text" name="artOwner" class="form-control" placeholder="Your Name" id="ownername" />
+                        <input type="text" name="ownerMail" class="form-control" placeholder="Your E-mail Adress" id="ownermail" />
+                        <select name="Category" class="custom-select custom-select-sm">
+                            <option selected>Choose Your Art's Category</option>
+                            <option value="1">Vector</option>
+                            <option value="2">Logo</option>
+                            <option value="3">Portrait</option>
+                            <option value="4">View</option>
+                            <option value="5">None One Of These</option>
+                        </select>
+
+                        <button onclick="redalert()" value="Send It Now" style="margin-top:15px; border:2px solid #ced4da; background-color: #ffffff; color: #495057 ;  border-radius:5px; ">Send It Now</button>
 
 
-                </div>
-
-
-
-
-            </form>
+                    </div>
 
 
 
+
+                </form>
+
+
+
+            </div>
         </div>
     </div>
 
@@ -91,32 +78,32 @@
             var z = document.forms["sendart"]["Link"].value;
             var a = document.forms["sendart"]["artOwner"].value;
             var b = document.forms["sendart"]["ownerMail"].value;
-            
-            
-            if (x == ""||y==""||z==""||a==""||b=="") {
+
+
+            if (x == "" || y == "" || z == "" || a == "" || b == "") {
                 alert("You Must Fill In All Fields");
 
-                
-                
-            }       
+
+
+            }
         }
-       
-        window.redalert= function() {
-        var f1 = document.getElementById("artname");
-        var f2 = document.getElementById("artdetail");
-        var f3 = document.getElementById("artlink");
-        var f4 = document.getElementById("ownername");
-        var f5 = document.getElementById("ownermail");
-        var list = [f1,f2,f3,f4,f5];
-        var i;
+
+        window.redalert = function () {
+            var f1 = document.getElementById("artname");
+            var f2 = document.getElementById("artdetail");
+            var f3 = document.getElementById("artlink");
+            var f4 = document.getElementById("ownername");
+            var f5 = document.getElementById("ownermail");
+            var list = [f1, f2, f3, f4, f5];
+            var i;
             for (i = 0; i < list.length; i++) {
                 if (list[i].value.length < 1) {
                     list[i].style.backgroundColor = "#871800";
-          }
+                }
             }
             return false;
         }
-        
+
     </script>
 </body>
 

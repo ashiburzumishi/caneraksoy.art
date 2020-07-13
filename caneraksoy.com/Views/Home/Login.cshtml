@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        body { background-color: white; }
+        .login-contianer { border: 1px solid #abb1b1; height: 36%; width: 60%; background-color: white; margin-left: 30%; margin-top: -500px; position: absolute; border-radius: 10px; }
+        .login-title { width: 100%; height: 10%; background-color: white; border-radius: 10px; font-family: "Open Sans", Helvetica, Arial, sans-serif; color: #787b7b; text-align: center; position: relative; margin-top: 10px; }
+        .inputs { margin-top: 20px; margin-left: 33%; }
+        .input-title { font-family: "Open Sans", Helvetica, Arial, sans-serif; color: #787b7b; }
+        .input-pass { width: 268px; margin-top: 10px; font-family: "Open Sans", Helvetica, Arial, sans-serif; color: #787b7b; background-color: transparent; border: 1px solid #787b7b; }
+        .input-mail { width: 268px; margin-top: 10px; font-family: "Open Sans", Helvetica, Arial, sans-serif; color: #787b7b; background-color: transparent; border: 1px solid #787b7b;}
+        .signin-button { width: 268px; margin-top: 10px; font-family: "Open Sans", Helvetica, Arial, sans-serif; color: #787b7b; background-color: transparent; border: 1px solid #787b7b; }
+        .forget-password { margin-top: 30px; font-family: "Open Sans", Helvetica, Arial, sans-serif; width: 268px; color: #787b7b; background-color: transparent; border: 1px solid #787b7b; }
+        .new-account { margin-top: 10px; font-family: "Open Sans", Helvetica, Arial, sans-serif; width: 268px; color: #787b7b; background-color: transparent; border: 1px solid #787b7b; }
+        .login-contianer2 { display: block; }
+        .forget-password-container { display: none; }
+        .forget-password-title { text-align: center; width: 100%; height: 10%; background-color: white; border-radius: 10px; font-family: "Open Sans", Helvetica, Arial, sans-serif; color: #787b7b; position: relative; margin-top: 10px; }
+        .remindpassword { width: 268px; margin-top: 10px; font-family: "Open Sans", Helvetica, Arial, sans-serif; color: #787b7b; background-color: transparent; border: 1px solid #787b7b; }
+        .forget-password-container-2 { margin-top: 40px; margin-left: 33%; }
+        .reminder-mail { border: 1px solid #787b7b; width: 221px; }
+        .mail-text { font-family: "Open Sans", Helvetica, Arial, sans-serif; color: #787b7b; }
+        #firstajax{width:100px; height:20px; background-color:red;}
+        .reminder-mail{ width: 268px; margin-top: 10px; font-family: "Open Sans", Helvetica, Arial, sans-serif; color: #787b7b; background-color: transparent; border: 1px solid #787b7b;}
+        @@media screen and (max-width:700px) {
+            .login-contianer { border: 1px solid #abb1b1; height: 36%; width: 90%; background-color: white; margin-left: 5%; margin-top: 200px; position: absolute; border-radius: 10px; }
+            .inputs { margin-left: 12%; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-contianer">
+        <div class="login-contianer2">
+            <div class="login-title"><strong>ACCOUNT LOGIN</strong></div>
+            <div class="inputs">
+                
+                <input class="input-mail" type="text" name="email"  placeholder="example@example.com"/>
+                <br />
+                
+                <input class="input-pass" type="password" name="password" placeholder="password"/>
+                <br />
+                <button class="signin-button"> SIGN IN</button>
+                <br />
+                <button class="forget-password" onclick="passwordPage()"> LOST MY PASSWORD</button>
+                <br />
+                <button class="new-account"> NEW ACCOUNT</button>
+                <br />
+                <table id="firstajax"></table>
+            </div>
+
+        </div>
+        <div class="forget-password-container">
+            <div class="forget-password-title"><strong>LOST MY PASSWORD</strong></div>
+            <div class="forget-password-container-2">
+                
+                <input class="reminder-mail" type="text" name="remindermail" placeholder="example@example.com" />
+                <br />
+                <button class="remindpassword">SEND NEW PASSWORD TO MAIL</button>
+                <br />
+                <button class="remindpassword" onclick="loginPage()">BACK TO LOGIN PAGE</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+<body>
+    <script>
+        function passwordPage() {
+
+            $(".login-contianer2").css("display", "none");
+            $(".forget-password-container").css("display", "block");
+        }
+
+        function loginPage() {
+            $(".login-contianer2").css("display", "block");
+            $(".forget-password-container").css("display", "none");
+        }
+
+       
+    </script>
+    <script>
+         $(document).ready(function () {
+            getLikes();
+         });
+
+        function getLikes()
+        {
+            $.ajax({
+                type: 'GET',
+                url: '/Home/like',
+                //dataType: "application/json",
+                success: function (data) {
+                    //$ = jQuery
+                    $('#firstajax').html("");;
+                    data.forEach(function (item) {
+                        var likenumber = '<tr><td>' +item.Like + '</td></tr>' ;
+                        jQuery('#firstajax').append(likenumber);
+                    })
+                },
+                error: function (err) {
+                    console.error(err.ErrorText);
+                },
+               
+            });
+        }
+
+    </script>
+
+
+</body>
+
+
+
+
+</html>
+

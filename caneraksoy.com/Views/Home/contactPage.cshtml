@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "contactPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .contact-photo-container { margin-top: 150px; margin-left: 50%; }
+        .contact-photo-link { width: 60%; filter: grayscale(100%); border: 1px solid black; }
+        .contact-form-container { width: 40%; height: 50%; margin-left: 10%; margin-top: -37.5%; }
+        .contact-title { font-family: Caudex, serif; color: #828282; font-size: 30px; font-weight: 400; line-height: 1.4em; letter-spacing: 0em; }
+        .contact-info { font-family: Sorts Mill Goudy, serif; color: #9c9a9a; font-size: 16px; font-weight: 400; line-height: 1.8em; letter-spacing: 0em; }
+        .contact-inputs { line-height: 1.5; padding: 10px; border-radius: 0; margin: 5px 0; width: 80%; font-size: inherit; outline: 0; font-family: Sorts Mill Goudy, serif; color: #9c9a9a; border: 1px solid rgba(156,154,154, 0.2); background: rgba(156,154,154, 0); font-weight: 400; background: none; }
+        .contact-inputs-message { height: 100px; line-height: 1.5; padding: 10px; border-radius: 0; margin: 5px 0; width: 80%; font-size: inherit; outline: 0; font-family: Sorts Mill Goudy, serif; color: #9c9a9a; border: 1px solid rgba(156,154,154, 0.2); background: rgba(156,154,154, 0); font-weight: 400; background: none; }
+        .contact-form-button { font-family: Sorts Mill Goudy, serif; color: #9c9a9a; border: 1px solid rgba(156,154,154, 0.2); background: rgba(156,154,154, 0); font-weight: 400;  background: rgba(156,154,154, 0.25);}
+        .contact-form-button:hover{}
+
+
+        @@media screen and (max-width:700px) {
+            .contact-photo-container{margin-left:30%;}
+            .contact-form-container{margin-left:10%; margin-top:20%; width:80%;}
+        }
+
+
+
+
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="contact-photo-container">
+        <div class="contact-photo">
+            <img class="contact-photo-link" src="~/photo/WhatsApp Image 2019-09-17 at 12.08.36.jpeg" />
+        </div>
+    </div>
+
+    <div class="contact-form-container">
+        <div class="contact-form">
+            <div class="contact-title">CONTACT ME</div>
+            <div class="contact-info">
+                <p>
+                    Fill out the form below or email us directly at caneraksoy54@hotmail.com
+                </p>
+                <p>
+                    We look forward to hearing from you!
+
+                </p>
+
+                <input type="text" name="name" class="contact-inputs" placeholder="Name*" />
+                <br />
+                <input type="text" name="name" class="contact-inputs" placeholder="Email*" />
+                <br />
+                <textarea name="name" class="contact-inputs-message" placeholder="Message*"></textarea>
+                <br />
+                <input type="submit" class="contact-form-button" value="Submit" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>
+

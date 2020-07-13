@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "sendArt2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .sendart-container { height: 100%; width: 80%; background-color: white; margin-left:9%;  }
+        .sendart-form-container {  background-color: white; margin-left: 0%;  margin-top: 100px;  }
+        .sendart-form-title {letter-spacing:3px; width: 100%; height: 10%; background-color: white; border-radius: 10px; font-family: Sorts Mill Goudy, serif; color: #9c9a9a; text-align: center; position: relative; margin-top: 10px; }
+        .input {letter-spacing:3px; width: 33%; margin-left: 40%; margin-top: 20PX; line-height: 1.5; padding: 10px; border-radius: 0; margin: 5px 0; width: 78%; font-size: inherit; outline: 0; font-family: Sorts Mill Goudy, serif; color: #9c9a9a; border: 1px solid #787b7b; background: rgba(156,154,154, 0); font-weight: 400; background: none;}
+        #send {margin-left:35%; margin-top:10px; width:150px; height:50px; text-align:center; font-family: Sorts Mill Goudy, serif; color: #9c9a9a; border: 1px solid rgba(156,154,154, 0.2); background: rgba(156,154,154, 0); font-weight: 400;  background: rgba(156,154,154, 0.25); }
+        .sendart-input-container{margin-left:15%;}
+    @@media screen and (max-width:700px) {
+           .input {width:50%; margin-left:24%;}
+           .sendart-form-container{margin-top:146px;}
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+
+    <div class="sendart-container">
+        <div class="sendart-form-container">
+            <div class="sendart-form-title">send your art</div>
+            <div class="sendart-input-container">
+                <form id="contact-form" onsubmit="return false;">
+                    <input class="input" name="Name" id="name" placeholder="artname" />
+                    <br />
+                    <input class="input" name="Detail" id="detail" placeholder="artdetail" />
+                    <br />
+                    <input class="input" name="Link" id="link" placeholder="link" />
+                    <br />
+                    <input class="input" name="artOwner" id="owner" placeholder="owner" />
+                    <br />
+                    <input class="input" name="ownerMail" id="mail" placeholder="mail" />
+                    <br />
+                    <select name="Category" class="input" id="">
+                        <option selected>Choose Your Art's Category</option>
+                        <option value="1">Vector</option>
+                        <option value="2">Logo</option>
+                        <option value="3">Portrait</option>
+                        <option value="4">View</option>
+                        <option value="5">None One Of These</option>
+                    </select>
+                    <br />
+                    <button type="button" id="send">SEND</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+<body>
+    <script>
+
+        $(function () {
+            $('#send').click(function (e) {
+               
+                $.ajax({
+                    type: "POST",
+                    url: '/Home/SendArt2',
+                    data: $('#contact-form').serialize(),//contact form da name i olanları seriye alıyor
+                    success: function (response) {
+                        alert("Art Uploaded!");
+                    },
+                    error: function (response) {
+                        alert("Art cannot be upload");
+                    }
+                });
+
+            });
+        });
+
+
+    </script>
+</body>
+</html>
+

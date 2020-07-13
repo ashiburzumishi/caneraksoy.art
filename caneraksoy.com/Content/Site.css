@@ -1,5 +1,5 @@
 ﻿
-body { background-color: #E8E8E8; }
+body { background: linear-gradient(180deg, rgba(133,147,152,1) 23%, rgba(40,48,72,1) 83%); }
 
 .grid { margin-top: 10px; /*margin-left: 10px;*/ }
 

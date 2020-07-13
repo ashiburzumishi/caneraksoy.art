@@ -34,7 +34,9 @@ namespace Managers
             photolist = new List<Photograph>();
             SqlCommand command = new SqlCommand("Select * From photographs");
             var datatable = SqlManager.SqlManager.GetDataTable(command);
-            
+
+            try
+            {
             if(datatable!=null)
                 foreach (DataRow row in datatable.Rows)
                 {
@@ -43,7 +45,7 @@ namespace Managers
                         Link = row["Link"].ToString(),
                         Id = int.Parse(row["Id"].ToString()),
                         Name = row["Name"].ToString(),
-                        Like = int.Parse(row["likeCount"].ToString()),
+                        Like = int.Parse(!string.IsNullOrEmpty(row["likeCount"].ToString()) ? row["likeCount"].ToString() : "0"),
                         Category=row["Detail"].ToString(),
                         artOwner=row["artOwner"].ToString(),
                         ownerMail=row["ownerMail"].ToString(),
@@ -51,6 +53,14 @@ namespace Managers
                     }
                         );
                 }
+
+
+            }
+            catch (System.Exception ex)
+            {
+
+                throw;
+            }
             return photolist != null && photolist.Count > 0;
         }
 
@@ -68,6 +78,7 @@ namespace Managers
 
             var datatable= SqlManager.SqlManager.GetDataTable(sendArtCommand);
 
+            
             art = new Photograph
             {
                 Name = Name.ToString(),

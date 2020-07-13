@@ -1,121 +1,82 @@
-﻿<html>
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
 <head>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="~/Content/fontawesome.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="~/Content/fontawesome.css" rel="stylesheet" />
+
+    <style>
+
+        html { height: 100%; }
+        body { height: 100%; margin: 0px; padding: 0px; position: relative;  }
+        .menu-container { height: 10%; width: 100%; background-color: white; position: relative; }     
+        .menu-button {margin-top:8%; margin-left:20%; height: 60%; width: 80%; background-color: white; position: absolute; }
+            .menu-button .buttons { letter-spacing:3px; position: relative; margin-top: 25px; font-size: 18px; margin-left: 3%; width: 70%; height: 10%; background-color: white; font-family: Sorts Mill Goudy, serif; font-weight:400; text-align: right; color: #8e9393; }
+      
+       
+        .menu-link { text-decoration: none; color: #787b7b;  }
+        .menu-link:hover{text-decoration: none; color: #4b8919;}    
+        
+        .mobile-menu-container { display: none; }
+         a:active{color:#4b8919;}
+
+
+        @@media screen and (max-width:700px) {
+            .menu-container { display: none; }
+            .hamburger-button { color: #787b7b; font-size: 30px; position: relative; margin-left: 10px; margin-top: 10px; background-color: transparent; border: none; }
+            .mobile-menu-container { display: block; width: 100%; height: 8%; background-color: white; position: absolute; }
+            .mobile-menu-button-container { background-color: white; }
+            .mobile-buttons { display: none; width: 100%; height: 40px; background-color: white; position: relative; margin-top: 10px; }
+            .mobile-menu-link { text-decoration: none; color: #787b7b; margin-left: 15px; position: relative; }
+            
+        }
+
+        @@media screen and (min-width:700px) and (max-width:1024px) { }
+    </style>
 </head>
-
-<style>
-
-    body { margin: 0; color: #333;  min-height:100%; padding:0; margin:0; position:relative;  }
-    body::after{ content:''; display:block; height:100px; }
-
-    .footer-container { height: 100px; width: 100%; background-color: #222; bottom: 0; z-index: 1000; color: #444; }
-
-    .iletisim-container { width: 380px; height: 75px; float: right; }
-
-    .sosyalmedya { height: 75px; width: auto; float: left; }
-
-    .social { list-style: none; text-decoration: none; width: 400px; height: 75px; margin-top: 0px; }
-
-        .social li { text-decoration: none; float: left; }
-
-        .social a { text-decoration: none; color: black; font-family: "Cabin", Arial, Helvetica, sans-serif; }
-
-        .social img { height: 40px; margin-top: 20px; }
-
-    .yenimenu { text-align: center; }
-
-    #menu-button { background-color: white; height: 80px; color: black; float: left; padding-top: 25px; text-decoration: none; border-bottom: 1px solid #888; }
-    #menu-button-darkmode { background-color: black; height: 80px; color: black; float: left; padding-top: 25px; text-decoration: none; border-bottom: 1px solid #888; }
-
-    #menu-button a { color: #777; text-decoration: none; font-family: 'Ink Free'; font-size: 20px; }
-
-        #menu-button a:hover { color: #888; font: bold 18px 'Ink Free'; }
-
-    #socialmediabutton { height: 100px; background-color: #222; float: left; }
-
-    .footer { background-color: #222; position:absolute; bottom: 0; width: 100%; height: 100px; }
-
-    .sosyalmedya-butonlari { margin-top: 30px; text-align: center; }
-
-        .sosyalmedya-butonlari a { text-decoration: none; color: #333; font-size: 250%; text-align: center; }
-
-    .fa-bars { background-color: white; border-radius: 2px; border: none; }
-
-    .footersag { height: 100px; float: right; background-color: #222222; }
-
-    .sendMeEmail { margin-top: 32px; }
-
-    #hidebutton { border: none; text-align: center; background-color: #e8e8e8; font-size: 20px; margin-left: 12px; }
-
-    #mode { border: none; text-align: center; background-color: #e8e8e8; font-size: 20px; }
-</style>
-
 <body>
-    <div id="container-yenimenu">
-        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
+    <div class="mobile-menu-container">
+        <button class="hamburger-button fas fa-bars" onclick="hidef()" id="hidebutton"></button>
+        <div class="mobile-menu-button-container">
+
+            <div class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">home </a></></div>
+            <div class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">artwork </a></></div>
+            <div class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">photograph </a></></div>
+            <div class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">design <i class="fas fa-chevron-down"></i> </a></></div>
+            <div class="buttons"><a class="menu-link" href="@Url.Action("sendArt2","Home")">sendart </a></></div>
+            <div class="buttons"><a class="menu-link" href="">contact </a></></div>
         </div>
 
-        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="@Url.Action("Index","Home")">Home Page</a></div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="@Url.Action("allArts","Home")">All Arts</a></div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="@Url.Action("sendArt","Photograph")">Send Art</a></div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="@Url.Action("archive","Photograph")">Archive</a></div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-2" id="menu-button">
-            <div class="yenimenu"> <a href="">Contact</a></div>
-        </div>
     </div>
-    <button class="fas fa-arrow-alt-circle-up" onclick="hidef()" id="hidebutton"></button>
-    <button class="fas fa-sun" onclick="changeTheme()" id="mode"></button>
+    <div class="menu-container">
 
-    @RenderBody()
+       
+        <div class="menu-button">
+            <span class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">home </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">artwork </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">photograph </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">design <i class="fas fa-chevron-down"></i> </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("sendArt2","Home")">sendart </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("contactPage","Home")">contact </a></span>           
 
-    <div class="footer">
-        <div class="col-xs-12 col-sm-6 com-md-6 col-lg-6" id="socialmediabutton">
-
-            <div class="sosyalmedya-butonlari">
-                <a href=""><span class="fab fa-facebook-square"></span></a>
-                <a href=""><span class="fab fa-twitter-square"></span></a>
-                <a href=""> <span class="fab fa-instagram"></span></a>
-            </div>
         </div>
 
-        <div class="footersag col-xs-12 col-sm-6 com-md-6 col-lg-6">
-            <div class="sendMeEmail">
-                <input type="text" class="mailInput" placeholder="e mail" />
-                <input type="button" class="mailbutton" value="Send Me Mail" />
-            </div>
-        </div>
+       
     </div>
 
     <script>
 
         function hidef() {
 
-            $("#hidebutton").toggleClass('fa-arrow-alt-circle-down').toggleClass('fa-arrow-alt-circle-up');
-            $("#container-yenimenu").slideToggle(1000);
 
-        }
-
-        function changeTheme() {
-
-            $("#mode").toggleClass('fa-sun').toggleClass('fa-moon');
-
-
+            $(".mobile-buttons").slideToggle(1000);
 
         }
 
@@ -123,3 +84,5 @@
     </script>
 </body>
 </html>
+@RenderBody()
+
