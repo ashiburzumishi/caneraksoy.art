@@ -1,4 +1,5 @@
-﻿@model List<Entities.Photograph>
+﻿
+@model List<Entities.Photograph>
 
 
 <html>
@@ -10,14 +11,8 @@
     <script src="~/Scripts/jquery.fillcolor.1.1.0.min.js"></script>
     <link href="~/Content/fontawesome.css" rel="stylesheet" />
 
-    
-
-
-
     <style>
         
-
-
             .grid {
                 margin-top: 100px;
                 padding: 1em;
@@ -25,7 +20,6 @@
             }
 
             .grid-item img {
-                cursor:pointer;
                 width: 100%;
                 margin-bottom: 1em;
                 margin-top: 1em;
@@ -207,7 +201,6 @@
             }
 
             .art-container {
-                cursor:pointer;
                 position: absolute;
                 font-size: calc(0.75em + 1.5vmin);
                 margin-left: 5%;
@@ -227,7 +220,6 @@
             }
 
             .detail-container {
-                cursor:pointer;
                 padding-left: 10px;
                 position: absolute;
                 font-size: calc(0.75em + 1.5vmin);
@@ -257,35 +249,17 @@
                 border: 5px solid transparent;
                 break-inside: avoid;
                 padding-top: 10px;
-                display: none;
             }
 
             .shopping-button {
-                float: right;
-                bottom: 5px;
-                position: absolute;
-            }
-
-            .titleAndDetail:hover {
-                box-shadow: 0px 0px 15px #0000004a;
-            }
-
-            .loadMore {
-                height: 20px;
-                width: 100%;
-                bottom: 0;
-                padding-top: 10px;
-                padding-bottom: 20px;
-                box-shadow: 0px -4px 15px #0000004a;
-                color: #787b7b;
                 position: relative;
-                font-family: Sorts Mill Goudy, serif;
-                font-size: calc(0.75em + 1.5vmin);
-                text-align: center;
+                top: calc(50% - 10px);
+                text-decoration: none;
+                color: #787b7b;
             }
 
-                .loadMore:hover {
-                    box-shadow: 0px 0px 15px #0000004a;
+                .shopping-button:hover {
+                    color: #4b8919;
                 }
         
     </style>
@@ -297,24 +271,19 @@
     <div class="grid">
         @foreach (var item in Model)
         {
-            <div class="grid-item-protection"  >
+            <div class="grid-item-protection">
                 <div class="grid-item">
 
                     <div class="titleAndDetail">
-                        <a class="titleAndDetail-link artButton">
-                            <div class="art-container">
-                                art
-                            </div>
-                        </a>
-                        <a class="titleAndDetail-link detailButton">
-                            <div class="detail-container">
-                                detail
-                            </div>
 
-                        </a>
-                        
 
-                        
+
+
+                        <a href=""> <div class="shopping-button fas fa-shopping-cart"> @item.price $</div></a>
+
+
+
+
                     </div>
                     <img class="img-@item.Link grid-item-img" id="img-@item.Id" src="https://mobile.donanimhaber.com/cache-v2/?t=1&width=-1&text=0&path= @item.Link" alt="@item.Name">
                     <div class="detail-tab">
@@ -349,13 +318,15 @@
 
                 </div>
             </div>
-
-
         }
-        
+
+
+
+
+
     </div>
 
-    <div id="loadmore" class="loadMore">load more</div>
+
 
 
 
@@ -364,29 +335,6 @@
 </body>
 <body>
     <script>
-
-        $(function () {
-            $(".grid-item-protection").slice(0, 8).show();
-            $(".loadMore").click(function (e) { 
-                e.preventDefault();
-                $(".grid-item-protection:hidden").slice(0, 8).show(); 
-                if ($(".grid-item-protection:hidden").length == 0) {
-                    $("#loadmore").html("no more");
-                    
-                }
-            });
-        });
-
-
-       
-     //window.onscroll = function(ev) {
-     //    if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-     //   alert('sayfanın sonuna geldin.')
-     //    }
-     //};
-
-
-
         $('.grid-item img').click(function () {
             $(this).parent().find('.modal').show();
         })
@@ -416,9 +364,7 @@
             $(this).parent().parent().find(".detail-list").css("display", "none");
         });
 
-       
-       
-        
+
     </script>
 
 

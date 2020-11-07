@@ -9,19 +9,81 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
-        .sendart-container { height: 100%; width: 80%; background-color: white; margin-left:9%;  }
-        .sendart-form-container {  background-color: white; margin-left: 0%;  margin-top: 100px;  }
-        .sendart-form-title {letter-spacing:3px; width: 100%; height: 10%; background-color: white; border-radius: 10px; font-family: Sorts Mill Goudy, serif; color: #9c9a9a; text-align: center; position: relative; margin-top: 10px; }
-        .input {letter-spacing:3px; width: 33%; margin-left: 40%; margin-top: 20PX; line-height: 1.5; padding: 10px; border-radius: 0; margin: 5px 0; width: 78%; font-size: inherit; outline: 0; font-family: Sorts Mill Goudy, serif; color: #9c9a9a; border: 1px solid #787b7b; background: rgba(156,154,154, 0); font-weight: 400; background: none;}
-        #send {margin-left:35%; margin-top:10px; width:150px; height:50px; text-align:center; font-family: Sorts Mill Goudy, serif; color: #9c9a9a; border: 1px solid rgba(156,154,154, 0.2); background: rgba(156,154,154, 0); font-weight: 400;  background: rgba(156,154,154, 0.25); }
-        .sendart-input-container{margin-left:15%;}
-    @@media screen and (max-width:700px) {
-           .input {width:50%; margin-left:24%;}
-           .sendart-form-container{margin-top:146px;}
-        }
-    
-    
-    
+        
+            .sendart-container {
+                height: 100%;
+                width: 80%;
+                background-color: white;
+                margin-left: 9%;
+            }
+
+            .sendart-form-container {
+                background-color: white;
+                margin-left: 0%;
+                margin-top: 50px;
+            }
+
+            .sendart-form-title {
+                letter-spacing: 3px;
+                width: 100%;
+                height: 10%;
+                background-color: white;
+                border-radius: 10px;
+                font-size: calc(0.75em + 3vmin);
+                font-family: Sorts Mill Goudy, serif;
+                color: #9c9a9a;
+                text-align: center;
+                position: relative;
+                margin-top: 10px;
+                padding-bottom: 30px;
+            }
+
+            .input {
+                letter-spacing: 3px;
+                width: 33%;
+                margin-left: 40%;
+                margin-top: 20PX;
+                line-height: 1.5;
+                padding: 10px;
+                border-radius: 0;
+                margin: 5px 0;
+                width: 100%;
+                font-size: calc(0.75em + 3vmin);
+                outline: 0;
+                font-family: Sorts Mill Goudy, serif;
+                color: #9c9a9a;
+                border: 1px solid #787b7b;
+                background: rgba(156,154,154, 0);
+                font-weight: 400;
+                background: none;
+            }
+
+            #send {
+                font-size: calc(0.75em + 3vmin);
+                margin-top: 10px;
+                width: 100%;
+                height: 10%;
+                text-align: center;
+                font-family: Sorts Mill Goudy, serif;
+                color: #9c9a9a;
+                border: 1px solid rgba(156,154,154, 0.2);
+                background: rgba(156,154,154, 0);
+                font-weight: 400;
+                background: rgba(156,154,154, 0.25);
+            }
+
+            .sendart-input-container {
+            }
+
+            @@media screen and (max-width:700px) {
+                .input {
+                    width: 100%;
+                }
+
+                .sendart-form-container { /*margin-top:146px;*/
+                }
+            }
+        
     </style>
 </head>
 <body>
@@ -39,18 +101,11 @@
                     <br />
                     <input class="input" name="artOwner" id="owner" placeholder="owner" />
                     <br />
+                    <input class="input" name="Category" id="category" placeholder="owner" />
+                    <br />
                     <input class="input" name="ownerMail" id="mail" placeholder="mail" />
                     <br />
-                    <select name="Category" class="input" id="">
-                        <option selected>Choose Your Art's Category</option>
-                        <option value="1">Vector</option>
-                        <option value="2">Logo</option>
-                        <option value="3">Portrait</option>
-                        <option value="4">View</option>
-                        <option value="5">None One Of These</option>
-                    </select>
-                    <br />
-                    <button type="button" id="send">SEND</button>
+                    <button type="button" id="send">send</button>
                 </form>
             </div>
 
@@ -66,7 +121,7 @@
 
         $(function () {
             $('#send').click(function (e) {
-               
+
                 $.ajax({
                     type: "POST",
                     url: '/Home/SendArt2',

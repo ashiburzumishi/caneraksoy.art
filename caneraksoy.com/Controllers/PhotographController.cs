@@ -8,62 +8,42 @@ namespace caneraksoy.com.Controllers
     public class PhotographController : Controller
 
     {
-        [HttpGet]
-        public ActionResult Addphotograph()
-        {
-            return View();
-        }
 
-        [HttpPost]
-        public ActionResult Addphotograph(Photograph photographs)
+        [HttpGet]
+        public ActionResult sended()
         {
             var photomanager = new PhotoManager();
-            var isSucced = photomanager.addphoto(photographs.Name, photographs.Detail, photographs.Link, out Photograph newphoto);
-            if (isSucced)
-                return RedirectToAction("Addphotograph", "Photograph");
+            var issucced = photomanager.sended(out List<Photograph> list);
+            if (issucced)
+            {
+                return View(list);
+            }
             else
-                return View();
+            {
+                return RedirectToAction("Home", "allArts");
+            }
         }
 
-        public ActionResult photoInfo(int id)
-        {
-            return View();
-        }
-
-        [httpget]
-        public ActionResult sendArt()
-        {
-            return View();
-        }
         [HttpPost]
-        public ActionResult sendArt(Photograph art)
+        public JsonResult sended (string id)
         {
-            var artmanager = new PhotoManager();
-            var isSucced = artmanager.addArt(art.Name, art.Detail, art.Link, art.artOwner, art.ownerMail, art.Category, out Photograph newart);
-            if (isSucced)
-            {
-                return RedirectToAction("", "");
-            }
-            else
-                return View();
-
+            return Json(1);
         }
 
-
-        public ActionResult archive()
+        public ActionResult genrePhoto (Photograph photo)
         {
-            var archivemanager = new PhotoManager();
-            var isSucced = archivemanager.photos(out List<Photograph> archive);
-            if (isSucced)
+            var photomanager = new PhotoManager();
+            var issucced = photomanager.photos(out List<Photograph> genrePhoto);
+            if (issucced)
             {
-                return View(archive);
+                return View(genrePhoto);
             }
             else
             {
-                return View();
+                return RedirectToAction("Photograph", "genrePhoto");
             }
-
-           
         }
+
+       
     }
 }

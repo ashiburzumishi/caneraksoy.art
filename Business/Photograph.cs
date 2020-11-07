@@ -10,5 +10,7 @@
         public string artOwner { get; set; }
         public string ownerMail { get; set; }
         public int Like { get; set; }
+        public int price { get; set; }
+        public int respect { get; set; }
     }
 }

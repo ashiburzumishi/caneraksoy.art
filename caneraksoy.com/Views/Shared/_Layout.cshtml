@@ -13,73 +13,194 @@
     <link href="~/Content/fontawesome.css" rel="stylesheet" />
 
     <style>
-
-        html { height: 100%; }
-        body { height: 100%; margin: 0px; padding: 0px; position: relative;  }
-        .menu-container { height: 10%; width: 100%; background-color: white; position: relative; }     
-        .menu-button {margin-top:8%; margin-left:20%; height: 60%; width: 80%; background-color: white; position: absolute; }
-            .menu-button .buttons { letter-spacing:3px; position: relative; margin-top: 25px; font-size: 18px; margin-left: 3%; width: 70%; height: 10%; background-color: white; font-family: Sorts Mill Goudy, serif; font-weight:400; text-align: right; color: #8e9393; }
-      
        
-        .menu-link { text-decoration: none; color: #787b7b;  }
-        .menu-link:hover{text-decoration: none; color: #4b8919;}    
+            html {
+                height: 100%;
+            }
+
+            body {
+                height: 100%;
+                margin: 0px;
+                padding: 0px;
+                position: relative;
+            }
+
+            .menu-container {
+                height: 20%;
+                width: 100%;
+                background-color: white;
+                position: relative;
+            }
+
+            .menu-button {
+                text-align: center;
+                display: inline;
+                top: 40%;
+                height: 60%;
+                width: 100%;
+                background-color: white;
+                position: absolute;
+            }
+
+                .menu-button .buttons {
+                    letter-spacing: 3px;
+                    position: relative;
+                    margin-top: 25px;
+                    font-size: calc(0.75em + 3vmin);
+                    margin-left: 3%;
+                    width: 70%;
+                    height: 10%;
+                    background-color: white;
+                    font-family: Sorts Mill Goudy, serif;
+                    font-weight: 400;
+                    text-align: right;
+                    color: #8e9393;
+                }
+
+
+            .menu-link {
+                text-decoration: none;
+                color: #787b7b;
+            }
+
+                .menu-link:hover {
+                    text-decoration: none;
+                    color: #4b8919;
+                }
+
+            .mobile-menu-container {
+                display: none;
+            }
+
+            a:active {
+                color: #4b8919;
+            }
+
+            .ayrac {
+                border-radius: 5px;
+                border: 2px solid #979a9a78;
+                width: 80%;
+                opacity: 50%;
+            }
+
+
+            @@media screen and (max-width:700px) {
+                .menu-container {
+                    display: none;
+                }
+
+                .buttons {
+                    margin-top: 10px;
+                }
+
+                .hamburger-button {
+                    color: #787b7b;
+                    font-size: 30px;
+                    position: relative;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                    background-color: transparent;
+                    border: none;
+                }
+
+                .mobile-menu-container {
+                    display: block;
+                    width: 100%;
+                    height: 8%;
+                    background-color: white;
+                }
+
+                .mobile-menu-button-container {
+                    background-color: white;
+                    display: none;
+                    position: relative;
+                    padding-left: 3.5%;
+                    font-size: 30px;
+                    z-index: 10;
+                    padding-bottom: 10px;
+                }
+
+                .mobile-buttons {
+                    display: none;
+                    width: 100%;
+                    height: 40px;
+                    background-color: white;
+                    position: relative;
+                    margin-top: 10px;
+                }
+
+                .mobile-menu-link {
+                    text-decoration: none;
+                    color: #787b7b;
+                    margin-left: 15px;
+                    position: relative;
+                }
+            }
+
+            @@media screen and (min-width:700px) and (max-width:1024px) {
+            }
         
-        .mobile-menu-container { display: none; }
-         a:active{color:#4b8919;}
-
-
-        @@media screen and (max-width:700px) {
-            .menu-container { display: none; }
-            .hamburger-button { color: #787b7b; font-size: 30px; position: relative; margin-left: 10px; margin-top: 10px; background-color: transparent; border: none; }
-            .mobile-menu-container { display: block; width: 100%; height: 8%; background-color: white; position: absolute; }
-            .mobile-menu-button-container { background-color: white; }
-            .mobile-buttons { display: none; width: 100%; height: 40px; background-color: white; position: relative; margin-top: 10px; }
-            .mobile-menu-link { text-decoration: none; color: #787b7b; margin-left: 15px; position: relative; }
-            
-        }
-
-        @@media screen and (min-width:700px) and (max-width:1024px) { }
     </style>
 </head>
 <body>
+
     <div class="mobile-menu-container">
         <button class="hamburger-button fas fa-bars" onclick="hidef()" id="hidebutton"></button>
         <div class="mobile-menu-button-container">
 
-            <div class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">home </a></></div>
+            <div class="buttons"><a class="menu-link" href="@Url.Action("homePage","Home")">home </a></></div>
             <div class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">artwork </a></></div>
-            <div class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">photograph </a></></div>
-            <div class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">design <i class="fas fa-chevron-down"></i> </a></></div>
+            <div class="buttons"><a class="menu-link" href="@Url.Action("genrePhoto","Photograph")">photograph </a></></div>
+            <div class="buttons"><a class="menu-link" href="@Url.Action("shop","Home")">shop  </a></></div>
             <div class="buttons"><a class="menu-link" href="@Url.Action("sendArt2","Home")">sendart </a></></div>
-            <div class="buttons"><a class="menu-link" href="">contact </a></></div>
+            <div class="buttons"><a class="menu-link" href="@Url.Action("contactPage","Home")">contact </a></></div>
+
         </div>
 
     </div>
+   
     <div class="menu-container">
 
-       
-        <div class="menu-button">
-            <span class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">home </a></span>
-            <span class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">artwork </a></span>
-            <span class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">photograph </a></span>
-            <span class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">design <i class="fas fa-chevron-down"></i> </a></span>
-            <span class="buttons"><a class="menu-link" href="@Url.Action("sendArt2","Home")">sendart </a></span>
-            <span class="buttons"><a class="menu-link" href="@Url.Action("contactPage","Home")">contact </a></span>           
 
+        <div class="menu-button">
+            <span class="buttons"><a class="menu-link" href="@Url.Action("homePage","Home")">home </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("allArts","Home")">artwork </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("genrePhoto","Photograph")">photograph </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("shop","Home")">shop  </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("sendArt2","Home")">sendart </a></span>
+            <span class="buttons"><a class="menu-link" href="@Url.Action("contactPage","Home")">contact </a></span>
+            
         </div>
 
-       
-    </div>
 
+    </div>
+    <hr class="ayrac" />
     <script>
 
         function hidef() {
 
 
-            $(".mobile-buttons").slideToggle(1000);
+            $(".mobile-menu-button-container").slideToggle(1000);
 
         }
+        function getURL() {
+            alert("The URL of this page is: " + window.location.href);
+        }
 
+        window.onload = function (url) {
+            var url = window.location.href;
+            alert(url);
+        }
+
+        window.onload = function takePageUrl() {
+            var url = window.location.href;
+            if (url.includes("masonryTest")) {
+
+                document.getElementsByClassName("mobile-menu-container").style.position = "fixed";
+
+            }
+
+        }
 
     </script>
 </body>

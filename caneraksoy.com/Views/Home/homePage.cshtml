@@ -1,0 +1,236 @@
+﻿
+@{
+    ViewBag.Title = "homePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="~/Content/fontawesome.css" rel="stylesheet" />
+
+    <style>
+
+
+
+            .digital-painting-title {
+                letter-spacing: 3px;
+                position: relative;
+                margin-top: 25px;
+                font-size: calc(0.75em + 3vmin);
+                width: 70%;
+                height: 10%;
+                font-family: Sorts Mill Goudy, serif;
+                font-weight: 400;
+                color: #787b7b;
+            }
+
+            .digital-painting-img img {
+                width: calc(13.75em + 3vmin);
+                margin-top: 20px;
+            }
+
+            #dot {
+                color: #787b7b;
+                font-size: calc(0.75em + 3vmin);
+                margin-left: 25%;
+            }
+
+            .grid-item img {
+                width: 100%;
+                margin-bottom: 1em;
+                margin-top: 1em;
+                display: block;
+                padding-bottom: 20px;
+            }
+
+            .grid-item {
+                box-shadow: 0px 0px 13px 1px #0000004a;
+                margin-bottom: 15px;
+                -webkit-column-break-inside: avoid;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .titleAndDetail {
+                position: relative;
+                /*border: 1px solid #787b7b;
+            background-color: #7C8674;*/
+                text-align: center;
+                height: 7vh;
+                box-shadow: 0px 1px 7px #0000004a;
+                color: #cccccc;
+                font-size: calc(0.75em + 1.5vmin);
+            }
+
+            .titleAndDetail-link.a {
+                border-bottom: 2px solid #55c57a
+            }
+
+            .art-container {
+                position: absolute;
+                font-size: calc(0.75em + 1.5vmin);
+                margin-left: 5%;
+                text-align: center;
+                float: left;
+                color: #787b7b;
+                font-family: Sorts Mill Goudy, serif;
+                bottom: 10px;
+            }
+
+                .art-container:hover {
+                    color: #4b8919;
+                }
+
+
+            .grid {
+                padding: 1em;
+                column-count: 4;
+            }
+
+            .grid-item-protection {
+                border: 5px solid transparent;
+                break-inside: avoid;
+                padding-top: 10px;
+            }
+
+            @@media(max-width:800px) {
+                .grid {
+                    column-count: 3
+                }
+            }
+
+            @@media(max-width:500px) {
+                .grid {
+                    column-count: 1
+                }
+            }
+
+            @@media(max-width:300px) {
+                .grid {
+                    column-count: 1
+                }
+            }
+
+            .ayrac {
+                border-radius: 5px;
+                border: 2px solid #979a9a78;
+                width: 80%;
+                opacity: 50%;
+            }
+
+            .caneraksoyart {
+                text-align: center;
+                letter-spacing: 3px;
+                position: relative;
+                margin-top: 25px;
+                font-size: calc(0.75em + 3vmin);
+                height: 10%;
+                font-family: Sorts Mill Goudy, serif;
+                font-weight: 400;
+                color: #8e9393;
+            }
+        
+
+    </style>
+</head>
+
+
+
+
+
+
+<body>
+    <div class="tanitim-container">
+        <div class="grid">
+            <div class="grid-item-protection">
+                <div class="grid-item">
+
+                    <div class="titleAndDetail">
+                        <a class="titleAndDetail-link artButton">
+                            <div class="art-container">
+                                painting
+                            </div>
+                        </a>
+
+
+
+
+                    </div>
+                    <img class="" id="" src="https://i.imgyukle.com/2020/11/01/IzOT6I.jpg" alt="">
+
+
+
+
+                </div>
+            </div>
+
+            <div class="grid-item-protection">
+                <div class="grid-item">
+
+                    <div class="titleAndDetail">
+                        <a class="titleAndDetail-link artButton">
+                            <div class="art-container">
+                                tutorials
+                            </div>
+                        </a>
+                    </div>
+                    <img class="" id="" src="https://i.imgyukle.com/2020/11/01/IzLEd6.jpg" alt="">
+
+
+
+
+                </div>
+            </div>
+            <div class="grid-item-protection">
+                <div class="grid-item">
+
+                    <div class="titleAndDetail">
+                        <a class="titleAndDetail-link artButton">
+                            <div class="art-container">
+                                brush sets
+                            </div>
+                        </a>
+                    </div>
+                    <img class="" id="" src="https://cms-assets.tutsplus.com/uploads/users/2092/posts/31889/image/brush_7.jpg" alt="">
+
+
+
+
+                </div>
+            </div>
+            <div class="grid-item-protection">
+                <div class="grid-item">
+
+                    <div class="titleAndDetail">
+                        <a class="titleAndDetail-link artButton">
+                            <div class="art-container">
+                                oil paint
+                            </div>
+                        </a>
+                    </div>
+                    <img class="" id="" src="https://mobile.donanimhaber.com/cache-v2/?t=1&width=-1&text=0&path=%20https://i.hizliresim.com/xHgj5Q.jpg" alt="">
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="ayrac" />
+
+    <div class="caneraksoyart">caneraksoy.art</div>
+    
+</body>
+
+<script>
+
+</script>
+
+
+</html>
+

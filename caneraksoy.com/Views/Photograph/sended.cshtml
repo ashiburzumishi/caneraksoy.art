@@ -1,0 +1,405 @@
+﻿
+@model List<Entities.Photograph>
+
+
+<html>
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.fillcolor.1.1.0.min.js"></script>
+    <link href="~/Content/fontawesome.css" rel="stylesheet" />
+
+    <style>
+
+        .grid {
+            margin-top: 100px;
+            padding: 1em;
+            column-count: 4;
+        }
+
+        .grid-item img {
+            width: 100%;
+            margin-bottom: 1em;
+            margin-top: 1em;
+            display: block;
+            padding-bottom: 20px;
+        }
+
+        .grid-item {
+            box-shadow: 0px 0px 13px 1px #0000004a;
+            margin-bottom: 15px;
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+
+
+        @@media(max-width:800px) {
+            .grid {
+                column-count: 3
+            }
+        }
+
+        @@media(max-width:500px) {
+            .grid {
+                column-count: 2
+            }
+        }
+
+        @@media(max-width:300px) {
+            .grid {
+                column-count: 1
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 80%;
+            padding-bottom: 100px;
+        }
+
+        @@media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+
+            .grid {
+                margin-top: 0px;
+                padding-top: 70px;
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 28px;
+            right: 54px;
+            color: #f1f1f1;
+            font-size: calc(0.75em + 3vmin);
+            font-weight: bold;
+            transition: 0.3s;
+            padding-left: 5px;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        .desc {
+            margin-bottom: 20px;
+            border: 1px solid #787b7b;
+            background-color: #7C8674;
+            text-align: center;
+            margin-top: -20px;
+            color: #cccccc;
+            font-size: calc(0.75em + 1.5vmin);
+        }
+
+            .desc img {
+                display: none;
+            }
+
+        .modal-img-avarage-color {
+            display: none;
+        }
+
+        .share {
+            position: absolute;
+            top: 28px;
+            right: 54px;
+            color: #f1f1f1;
+            font-size: calc(0.75em + 3vmin);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+            .share:hover, share:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .like {
+            position: absolute;
+            top: 28px;
+            right: 54px;
+            color: #f1f1f1;
+            font-size: calc(0.75em + 3vmin);
+            font-weight: bold;
+            transition: 0.3s;
+            float: left;
+            padding-left: 5px;
+        }
+
+            .like:hover, like:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .button-container {
+            position: absolute;
+            top: 28px;
+            right: 54px;
+            color: #f1f1f1;
+            font-size: calc(0.75em + 3vmin);
+            font-weight: bold;
+            transition: 0.3s;
+            float: left;
+            padding-left: 5px;
+            background-color: red;
+            width: 20%;
+            height: 30%;
+        }
+
+        .titleAndDetail {
+            position: relative;
+            /*border: 1px solid #787b7b;
+            background-color: #7C8674;*/
+            text-align: center;
+            height: 7vh;
+            box-shadow: 0px 1px 7px #0000004a;
+            color: #cccccc;
+            font-size: calc(0.75em + 1.5vmin);
+        }
+
+        .titleAndDetail-link.a {
+            border-bottom: 2px solid #55c57a
+        }
+
+        .art-container {
+            position: absolute;
+            font-size: calc(0.75em + 1.5vmin);
+            margin-left: 5%;
+            text-align: center;
+            float: left;
+            color: #787b7b;
+            font-family: Sorts Mill Goudy, serif;
+            bottom: 0;
+        }
+
+            .art-container:hover {
+                color: #4b8919;
+            }
+
+        .detail-container:hover {
+            color: #4b8919;
+        }
+
+        .detail-container {
+            padding-left: 10px;
+            position: absolute;
+            font-size: calc(0.75em + 1.5vmin);
+            margin-left: 20%;
+            text-align: center;
+            float: left;
+            color: #787b7b;
+            font-family: Sorts Mill Goudy, serif;
+            bottom: 0;
+        }
+
+        .detail-list {
+            display: none;
+            font-family: Sorts Mill Goudy, serif;
+            font-size: calc(0.75em + 1.5vmin);
+            color: #787b7b;
+            padding-left: 15px;
+            margin-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .modal-img-avarage-color {
+            display: none !important;
+        }
+
+        .grid-item-protection {
+            border: 5px solid transparent;
+            break-inside: avoid;
+            padding-top: 10px;
+        }
+
+        .shopping-button {
+            cursor: pointer;
+            background-color: white;
+            font-size: calc(144% - 10px);
+            position: relative;
+            top: calc(50% - 10px);
+            text-decoration: none;
+            color: #787b7b;
+            border: 0px solid;
+        }
+
+            .shopping-button:hover {
+                color: #4b8919;
+            }
+    </style>
+
+
+
+</head>
+<body>
+    <div class="grid">
+        @foreach (var item in Model)
+        {
+            <div class="grid-item-protection">
+                <div class="grid-item">
+
+                    <div class="titleAndDetail">
+
+
+
+
+                         <div id="moveButton" class="shopping-button far fa-caret-square-up"> move to artwork</div>
+
+
+
+
+                    </div>
+                    <img class="img-@item.Link grid-item-img"  id="img-@item.Id" src="https://mobile.donanimhaber.com/cache-v2/?t=1&width=-1&text=0&path= @item.Link" alt="@item.Name">
+                    <div class="detail-tab">
+                        <div class="detail-list">name: @item.Name</div>
+                        <div class="detail-list">category: @item.Category</div>
+                        <div class="detail-list">resolotion:</div>
+                        <div class="detail-list">price: </div>
+                        <div class="detail-list">owner: @item.artOwner</div>
+                        <div class="detail-list">description:</div>
+                        <div class="detail-list">respect:</div>
+                        <div id="ajaxicinId">@item.Id</div>
+                    </div>
+                    @*<div class="desc">@item.Name <img src="@item.Link"></div>*@
+
+
+                    <div id="img-modal-@item.Id" class="modal">
+                        <img class="modal-img-avarage-color" src="@item.Link" />
+
+                        @*<div id="button" class="like fas fa-heart"></div>
+                            <div id="button" class="share fas fa-share-alt"> </div>*@
+                        <div id="button" class="close fas fa-times"></div>
+
+
+
+
+
+                        <img class="modal-content" id="img" src="@item.Link">
+
+                        <div id="caption"></div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        }
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+</body>
+<body>
+    <script>
+
+
+        $(function () {
+            
+            $('#moveButton').click(function (e) {
+                
+                var id = $('#ajaxicinId').text();
+                $.ajax({
+                    type: "POST",
+                    url: '/Photograph/sended',
+                    //data: id,
+                    data: "id=" + id,
+                    processData: false,
+
+                    success: function (response) {
+                        alert("moved");
+                    },
+                    error: function (response) {
+                        alert("Art cannot be moved");
+                    }
+                });
+
+
+            });
+        });
+
+
+
+        $('.grid-item img').click(function () {
+            $(this).parent().find('.modal').show();
+        })
+
+        $('.grid-item .modal .close').click(function () {
+            $(this).parent().hide();
+        })
+
+        $(function () {
+            $('.desc').fillColor();
+        });
+
+        $(function () {
+            $('.modal').fillColor();
+        });
+
+
+        $(".detailButton").click(function () {
+            console.log("tikladin");
+            $(this).parent().parent().find(".grid-item-img").css("display", "none");
+            $(this).parent().parent().find(".detail-list").css("display", "block");
+        });
+
+        $(".artButton").click(function () {
+            console.log("tikladinArt");
+            $(this).parent().parent().find(".grid-item-img").css("display", "block");
+            $(this).parent().parent().find(".detail-list").css("display", "none");
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
